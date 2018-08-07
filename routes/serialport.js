@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const portConnect = require('../api/serialport/port');
 
 /* GET */
 router.get('/', (req, res, next) => {
@@ -14,12 +15,14 @@ router.get('/:serialportCommand', (req, res, next) => {
   switch(n) {
     
     case 'connect':{
+      portConnect.connect();
       res.status(200).json({
         message: 'Connect'
       })   
         break;
   }
     case 'disconnect':{
+    portConnect.disconnect();
     res.status(200).json({
       message: 'Disconnect'
     })
