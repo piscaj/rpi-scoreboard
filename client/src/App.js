@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import './App.css';
-import TestDisplay from './testDisplayCommand'
+import React, { Component } from "react";
+import "./App.css";
+import TestDisplay from "./testDisplayCommand";
 
 class App extends Component {
   render() {
