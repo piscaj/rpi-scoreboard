@@ -1,27 +1,28 @@
-
-var SerialPort = require('serialport');// include Serialport library
-
-const portname = '/dev/ttyAMA0';//Set port here 
-
+// include Serialport library
+var SerialPort = require('serialport');
+//Set port here 
+const portname = '/dev/ttyAMA0';
+//Setup serial port
 var myPort = new SerialPort(portname, {
   autoOpen: false, //turn auto port open off so we can do this with .open and .close method
   baudRate: 9600
-}); //Setup serial port 
+}); 
 
 var Readline = SerialPort.parsers.Readline; // make instance of Readline parser
 var parser = new Readline(); // make a new parser to read data
 
 //Exports for API to use
-module.exports ={ openPort: function(){//open port
+//open port
+module.exports ={ openPort: function(){
   myPort.open();
   console.log("My PORT");
  },
-
-closePort: function(){//close port
+//close port
+closePort: function(){
  myPort.close();
  },
-
-portWrite: function(s) {//send data to port
+//send data to port
+portWrite: function(s) {
  myPort.write(s);
  }
 }
@@ -34,19 +35,19 @@ parser.on('data', readSerialData);
 myPort.on('close', portClose);
 myPort.on('error', showError);
 
+//on port open
 function portOpen() {
   console.log('Port open. Data rate: ' + myPort.baudRate);
-  setTimeout(portWrite, 3000);
 }
-
+//on data 
 function readSerialData(data) {
   console.log(data);
 }
-
+//on port closed
 function portClose() {
   console.log('Port closed.');
 }
-
+//on error
 function showError(error) {
   console.log(error);
 }
