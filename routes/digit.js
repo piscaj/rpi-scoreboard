@@ -12,18 +12,47 @@ router.get('/', (req, res, next) => {
 router.get('/:digitCommand', (req, res, next) => {
   const n = req.params.digitCommand;
   console.log(n);
-  if(n !== null){
+  switch(n) {
+    
+    case 'connect':{
+      res.status(200).json({
+        message: 'Connect'
+      })   
+        break;
+  }
+    case 'disconnect':{
+    res.status(200).json({
+      message: 'Disconnect'
+    })
+        break;
+}
+    default:{
     var command = buildCommand.displayCommand(n);
     res.status(200).json({
       message: 'Success!', 
       command: command
-   })
-  }
-  else{
-    res.status(200).json({
-      message: 'Err', 
     })
   }
+}   
 });
+ // if(n === 'connect'){
+ //   var command = buildCommand.displayCommand(n);
+ //   res.status(200).json({
+ //     message: 'Success!', 
+ //     command: command
+ //  })
+ // }
+ // else if(n === 'connect'){
+//  var command = buildCommand.displayCommand(n);
+//    res.status(200).json({
+//      message: 'Success!', 
+//      command: command
+ //  })
+//  }
+//  else{
+//    res.status(200).json({
+//      message: 'Err', 
+//    })
+//  }
 
 module.exports = router;
