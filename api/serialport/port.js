@@ -3,23 +3,29 @@ var SerialPort = require('serialport');// include the library
 //var portname = process.argv[2]; // get port name from the command line
 const portname = '/dev/ttyAMA0';
 
-module.exports ={ connect: function(){
-
 var myPort = new SerialPort(portname, {
-    baudRate: 9600
-  }); //Setup serial port
-}
-}
-
-module.exports ={ disconnect: function(){
-  myPort.portClose();
-  }
-  }
+  autoOpen: false,
+  baudRate: 9600
+}); //Setup serial port
 
 var Readline = SerialPort.parsers.Readline; // make instance of Readline parser
 var parser = new Readline(); // make a new parser to read data
-myPort.pipe(parser); // pipe the serial stream to the parser
 
+module.exports ={ openPort: function(){
+  myPort.open();
+  console.log("My PORT");
+ },
+
+closePort: function(){
+ myPort.close();
+ },
+
+portWrite: function(s) {
+ myPort.write(s);
+ }
+}
+
+myPort.pipe(parser); // pipe the serial stream to the parser
 //Callback functions for port and parser
 myPort.on('open', portOpen);
 parser.on('data', readSerialData);
@@ -45,7 +51,3 @@ function showError(error) {
   console.log(error);
 }
 
-module.exports ={ portWrite: function(s) {
-  myPort.write(s);
-}
-}

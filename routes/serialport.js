@@ -15,14 +15,14 @@ router.get('/:serialportCommand', (req, res, next) => {
   switch(n) {
     
     case 'connect':{
-      portConnect.connect();
+      portConnect.openPort();
       res.status(200).json({
         message: 'Connect'
       })   
         break;
   }
     case 'disconnect':{
-    portConnect.disconnect();
+    portConnect.closePort();
     res.status(200).json({
       message: 'Disconnect'
     })
