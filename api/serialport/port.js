@@ -15,19 +15,27 @@ var parser = new Readline(); // make a new parser to read data
 //open port
 module.exports = {
   openPort: function() {
-    myPort.open();
-    console.log("My PORT");
+    if (myPort.isOpen === false) {
+      myPort.open();
+    } else {
+      console.log("Port is already open.");
+    }
   },
   //close port
   closePort: function() {
-    myPort.close();
+    if (myPort.isOpen) {
+      myPort.close();
+    } else {
+      console.log("Port is already closed.");
+    }
   },
   //send data to port
   portWrite: function(s) {
     if (myPort.isOpen) {
       myPort.write(s);
+    } else {
+      console.log("Port is closed.");
     }
-    console.log("Port is closed.");
   }
 };
 
