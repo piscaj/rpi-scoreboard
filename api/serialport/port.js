@@ -33,7 +33,7 @@ module.exports = {
   portWrite: function(s) {
     if (myPort.isOpen) {
       for (i = 0; i < s.length; i++) {
-        myPort.write(s[i].toString(16));
+        myPort.write(s[i].charCodeAt(0));
     }
     } else {
       console.log("Port is closed.");
