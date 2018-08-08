@@ -14,12 +14,12 @@ module.exports = {
     var VAL = s.charCodeAt(0).toString(16);
     //console.log(SOH.toString(16)+DIGIT.toString(16)+ID0.toString(16)+ID1.toString(16)+VAL+CHK+ETX.toString(16));
     return (
-      SOH.toString(16).padStart(2, '0') +
-      DIGIT.toString(16).padStart(2, '0') +
-      ID0.toString(16).padStart(2, '0') +
-      ID1.toString(16).padStart(2, '0') +
-      VAL.padStart(2, '0') +
-      CHK.padStart(2, '0') +
+      '0x'+SOH.toString(16).padStart(2, '0') +'0x'+
+      DIGIT.toString(16).padStart(2, '0') +'0x'+
+      ID0.toString(16).padStart(2, '0') +'0x'+
+      ID1.toString(16).padStart(2, '0') +'0x'+
+      VAL.padStart(2, '0') +'0x'+
+      CHK.padStart(2, '0') +'0x'+
       ETX.toString(16).padStart(2, '0')
     );
   }
