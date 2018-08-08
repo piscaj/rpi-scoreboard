@@ -1,4 +1,5 @@
 const chk = require("./calculateChecksum");
+const convertByte = require("../tools/convertByte");
 
 module.exports = {
   displayCommand: function(s) {
@@ -12,15 +13,17 @@ module.exports = {
     TEMP = parseInt(s.charCodeAt(0), 10);
     var CHK = chk.calculateChk(DIGIT + ID0 + ID1 + TEMP);
     var VAL = s.charCodeAt(0).toString(16);
-    //console.log(SOH.toString(16)+DIGIT.toString(16)+ID0.toString(16)+ID1.toString(16)+VAL+CHK+ETX.toString(16));
+    
+    TEMP =  SOH.toString(16).padStart(2, '0') +
+    DIGIT.toString(16).padStart(2, '0') +
+    ID0.toString(16).padStart(2, '0') +
+    ID1.toString(16).padStart(2, '0') +
+    VAL.padStart(2, '0') +
+    CHK.padStart(2, '0') +
+    ETX.toString(16).padStart(2, '0');
+
     return (
-      '0x'+SOH.toString(16).padStart(2, '0') +'0x'+
-      DIGIT.toString(16).padStart(2, '0') +'0x'+
-      ID0.toString(16).padStart(2, '0') +'0x'+
-      ID1.toString(16).padStart(2, '0') +'0x'+
-      VAL.padStart(2, '0') +'0x'+
-      CHK.padStart(2, '0') +'0x'+
-      ETX.toString(16).padStart(2, '0')
+    convertByte.hexToBytes(TEMP)
     );
   }
 };
