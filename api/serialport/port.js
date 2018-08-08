@@ -33,10 +33,9 @@ module.exports = {
   //send data to port
   portWrite: function(s) {
     if (myPort.isOpen) {
-      for (i = 0; i < s.length; i++) {
-        myPort.write(convertByte.bytesToHex(s[i]));
+        myPort.write(convertByte.bytesToHex(s));
     }
-    } else {
+   else {
       console.log("Port is closed.");
     }
   }
