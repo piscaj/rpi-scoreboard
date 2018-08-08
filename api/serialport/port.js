@@ -1,3 +1,4 @@
+const convertByte = require("../tools/convertByte");
 // include Serialport library
 var SerialPort = require("serialport");
 //Set port here
@@ -33,7 +34,7 @@ module.exports = {
   portWrite: function(s) {
     if (myPort.isOpen) {
       for (i = 0; i < s.length; i++) {
-        myPort.write(s[i]);
+        myPort.write(convertByte.bytesToHex(s[i]));
     }
     } else {
       console.log("Port is closed.");
