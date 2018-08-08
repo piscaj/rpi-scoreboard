@@ -10,6 +10,7 @@ var myPort = new SerialPort(portname, {
 
 var Readline = SerialPort.parsers.Readline; // make instance of Readline parser
 var parser = new Readline(); // make a new parser to read data
+var buffer = new Buffer(10); // make a buffer for outbound data
 
 //Exports for API to use
 //open port
@@ -33,8 +34,9 @@ module.exports = {
   portWrite: function(s) {
     if (myPort.isOpen) {
       for (i = 0; i < s.length; i++) {
-        myPort.write(s[i].toString());
+        buffer[i]=s[i];
     }
+    myPort.write(buffer);
     } else {
       console.log("Port is closed.");
     }
