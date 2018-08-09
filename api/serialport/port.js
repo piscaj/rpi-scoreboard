@@ -5,7 +5,7 @@ const portname = "/dev/ttyAMA0";
 //Setup serial port
 var myPort = new SerialPort(portname, {
   autoOpen: false, //turn auto port open off so we can do this with .open and .close method
-  baudRate: 9600
+  baudRate: 9600 //set port speed
 });
 
 var Readline = SerialPort.parsers.Readline; // make instance of Readline parser
