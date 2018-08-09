@@ -8,7 +8,7 @@ router.get("/", (req, res, next) => {
   res.status(200).json({
     message: " "
   });
-});
+}); 
 //GET: handle commands to digit
 router.get("/:digitCommand", (req, res, next) => {
   if (req.params.digitCommand.includes(":")) {
