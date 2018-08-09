@@ -11,6 +11,7 @@ var serialportCommands = require('./routes/serialport');
 var app = express();
 
 // view engine setup
+// Not something to keep
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
