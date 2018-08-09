@@ -2,7 +2,6 @@
 
 //digit ID
 global.homeDigitID;
-global.homeDigitID = ['1','2'];
 global.awayDigitID;
 global.inningDigitID;
 global.ballsDigitID;
