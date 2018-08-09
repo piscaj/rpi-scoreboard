@@ -1,5 +1,8 @@
-const buildCommand = require("../api/scoreboard/controlDigit");
-const com = require("../api/serialport/port");
+const buildCommand = require("./controlDigit");
+const com = require("../serialport/port");
+
+//global.homeDigitVal = 0;
+//global.homeDigitID = ['1','2'];
 
 module.exports = {
     
@@ -14,11 +17,11 @@ module.exports = {
 
     },
     
-    addAway: function() {
+    addHome: function() {
        const max = 99; 
        var val = '0';
 
-       if(homDigitVal < max){
+       if(homeDigitVal < max){
         homeDigitVal++;
         if(homeDigitVal<10){
             var command = buildCommand.displayCommand(homeDigitID[0],val);
