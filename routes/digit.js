@@ -9,7 +9,7 @@ router.get("/", (req, res, next) => {
     message: " "
   });
 });
-//GET: handle commands to digit
+//GET: handle commands to digit 
 router.get("/:digitCommand", (req, res, next) => {
   if (req.params.digitCommand.includes(":")) {
     const n = req.params.digitCommand.substring(0,req.params.digitCommand.indexOf(":")
