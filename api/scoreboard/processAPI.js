@@ -1,8 +1,6 @@
 const buildCommand = require("./controlDigit");
 const com = require("../serialport/port");
-
-//global.homeDigitVal = 0;
-//global.homeDigitID = ['1','2'];
+require ('../scoreboard/Global');
 
 module.exports = {
     

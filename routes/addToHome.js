@@ -7,7 +7,7 @@ router.get("/", (req, res, next) => {
   request.addHome();
   res.status(200).json({
     message: "Sucsess",
-    value: homDigitVal
+    value: homeDigitVal
   });
 });
 
