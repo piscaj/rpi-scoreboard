@@ -2,11 +2,29 @@ var express = require("express");
 var router = express.Router();
 require("../api/scoreboard/Global");
 const request = require("../api/scoreboard/processAPI");
+const portConnect = require("../api/serialport/port");
 
 //default page
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Scoreboard US REST API" });
 });
+
+//open serialport
+router.get("/serialOpen", function(req, res, next) {
+  portConnect.openPort();
+  res.status(200).json({
+    message: "Success",
+  });
+});
+
+//close serialport
+router.get("/serialClose", function(req, res, next) {
+  portConnect.closePort();
+  res.status(200).json({
+    message: "Success",
+  });
+});
+
 
 //add to home team score
 router.get("/addToHome", function(req, res, next) {
