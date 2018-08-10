@@ -6,6 +6,7 @@ global.awayDigitID = ['3','4'];
 global.inningDigitID = '5';
 global.ballsDigitID = ['6','7','8','9'];
 global.strikesDigitID = ['10','11','12'];
+global.outsDigitID = ['13','14','15'];
 
 //digit values
 global.homeDigitVal = 0;
@@ -13,6 +14,7 @@ global.awayDigitVal = 0;
 global.inningDigitVal = 0;
 global.ballsDigitVal = 0;
 global.strikesDigitVal = 0;
+global.outsDigitVal = 0;
 
 
 

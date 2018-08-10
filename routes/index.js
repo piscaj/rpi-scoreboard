@@ -2,7 +2,8 @@ var express = require("express");
 var router = express.Router();
 require("../api/scoreboard/Global");
 const request = require("../api/scoreboard/processAPI");
-/* GET home page. */
+
+//default page
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Scoreboard US REST API" });
 });
@@ -67,6 +68,64 @@ router.get("/subtractFromInning", function(req, res, next) {
   });
 });
 
+//add to balls
+router.get("/addToBalls", function(req, res, next) {
+  request.addBalls();
+  res.status(200).json({
+    message: "Success",
+    digit: ballsDigitID,
+    value: ballsDigitVal
+  });
+});
 
+//subtract from balls
+router.get("/subtractFromBalls", function(req, res, next) {
+  request.subtractBalls();
+  res.status(200).json({
+    message: "Success",
+    digit: ballsDigitID,
+    value: ballsDigitVal
+  });
+});
+
+//add to strikes
+router.get("/addToStrikes", function(req, res, next) {
+  request.addStrikes();
+  res.status(200).json({
+    message: "Success",
+    digit: strikesDigitID,
+    value: strikesDigitVal
+  });
+});
+
+//subtract from strikes
+router.get("/subtractFromStrikes", function(req, res, next) {
+  request.subtractStrikes();
+  res.status(200).json({
+    message: "Success",
+    digit: strikesDigitID,
+    value: strikesDigitVal
+  });
+});
+
+//add to outs
+router.get("/addToOuts", function(req, res, next) {
+  request.addOuts();
+  res.status(200).json({
+    message: "Success",
+    digit: outsDigitID,
+    value: outsDigitVal
+  });
+});
+
+//subtract from outs
+router.get("/subtractFromOuts", function(req, res, next) {
+  request.subtractOuts();
+  res.status(200).json({
+    message: "Success",
+    digit: outsDigitID,
+    value: outsDigitVal
+  });
+});
 
 module.exports = router;
