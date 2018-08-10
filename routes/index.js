@@ -15,6 +15,22 @@ router.get("/addToHome", function(req, res, next) {
   });
 });
 
+router.get("/subtractFromHome", function(req, res, next) {
+  request.subtractHome();
+  res.status(200).json({
+    message: "Success",
+    value: homeDigitVal
+  });
+});
+
+
+router.get("/addToAway", function(req, res, next) {
+  request.addAway();
+  res.status(200).json({
+    message: "Success",
+    value: awayDigitVal
+  });
+});
 
 
 

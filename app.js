@@ -5,10 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-// var displayCommands = require('./routes/digit');
-// var serialportCommands = require('./routes/serialport');
-// var clientAddToAway = require('./routes/addToAway');
-// var clientAddToHome = require('./routes/addToHome');
 
 var app = express();
 
@@ -24,11 +20,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-// app.use('/digit', displayCommands);
-// app.use('/serialport', serialportCommands);
-// app.use('/addToAway', clientAddToAway);
-// app.use('/addToHome', clientAddToHome);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
