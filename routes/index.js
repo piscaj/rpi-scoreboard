@@ -16,7 +16,7 @@ router.get("/addToHome", function(req, res, next) {
 });
 
 router.get("/subtractFromHome", function(req, res, next) {
-  request.subtractHome();
+  request.subtractHome();ç
   res.status(200).json({
     message: "Success",
     value: homeDigitVal
