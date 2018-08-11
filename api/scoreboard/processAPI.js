@@ -18,19 +18,16 @@ module.exports = {
     if (homeDigitVal < max) {
       homeDigitVal++;
       if (homeDigitVal < 10) {
-        var command = buildCommand.displayCommand(homeDigitID[0], val);
+        var command = buildCommand.displayCommand(homeDigitID[0],'0');
         com.portWrite(command);
-        command = buildCommand.displayCommand(
-          homeDigitID[1],
-          homeDigitVal.toString()
-        );
+        command = buildCommand.displayCommand(homeDigitID[1],homeDigitVal.toString());
         com.portWrite(command);
       } else if (homeDigitVal >= 10) {
         var val = homeDigitVal.toString().split("", 2);
         command = buildCommand.displayCommand(homeDigitID[0], val[0]);
         com.portWrite(command);
         command = buildCommand.displayCommand(homeDigitID[1], val[1]);
-        com.portWrite(val);
+        com.portWrite(command);
       }
     }
   },
@@ -42,19 +39,16 @@ module.exports = {
     if (homeDigitVal > min) {
       homeDigitVal--;
       if (homeDigitVal < 10) {
-        var command = buildCommand.displayCommand(homeDigitID[0], val);
+        var command = buildCommand.displayCommand(homeDigitID[0],'0');
         com.portWrite(command);
-        command = buildCommand.displayCommand(
-          homeDigitID[1],
-          homeDigitVal.toString()
-        );
+        command = buildCommand.displayCommand(homeDigitID[1],homeDigitVal.toString());
         com.portWrite(command);
       } else if (homeDigitVal >= 10) {
         var val = homeDigitVal.toString().split("", 2);
         command = buildCommand.displayCommand(homeDigitID[0], val[0]);
         com.portWrite(command);
         command = buildCommand.displayCommand(homeDigitID[1], val[1]);
-        com.portWrite(val);
+        com.portWrite(command);
       }
     }
   },
@@ -66,7 +60,7 @@ module.exports = {
     if (awayDigitVal < max) {
       awayDigitVal++;
       if (awayDigitVal < 10) {
-        var command = buildCommand.displayCommand(awayDigitID[0], val);
+        var command = buildCommand.displayCommand(awayDigitID[0],'0');
         com.portWrite(command);
         command = buildCommand.displayCommand(
           awayDigitID[1],
@@ -78,7 +72,7 @@ module.exports = {
         command = buildCommand.displayCommand(awayDigitID[0], val[0]);
         com.portWrite(command);
         command = buildCommand.displayCommand(awayDigitID[1], val[1]);
-        com.portWrite(val);
+        com.portWrite(command);
       }
     }
   },
@@ -90,7 +84,7 @@ module.exports = {
     if (awayDigitVal > min) {
       awayDigitVal--;
       if (awayDigitVal < 10) {
-        var command = buildCommand.displayCommand(awayDigitID[0], val);
+        var command = buildCommand.displayCommand(awayDigitID[0], '0');
         com.portWrite(command);
         command = buildCommand.displayCommand(
           awayDigitID[1],
@@ -102,7 +96,7 @@ module.exports = {
         command = buildCommand.displayCommand(awayDigitID[0], val[0]);
         com.portWrite(command);
         command = buildCommand.displayCommand(awayDigitID[1], val[1]);
-        com.portWrite(val);
+        com.portWrite(command);
       }
     }
   },
