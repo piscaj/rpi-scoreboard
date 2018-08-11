@@ -25,7 +25,6 @@ router.get("/serialClose", function(req, res, next) {
   });
 });
 
-
 //add to home team score
 router.get("/addToHome", function(req, res, next) {
   request.addHome();
