@@ -32,6 +32,7 @@ module.exports = {
   },
   //send data to port
   portWrite: function(s) {
+    console.log("|------------Message sent to comport----------->>>>", s)
     if (myPort.isOpen) {
     //Fill the buffer with byte array
       for (i = 0; i < s.length; i++) {
