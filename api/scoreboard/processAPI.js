@@ -3,12 +3,37 @@ const com = require("../serialport/port");
 require("../scoreboard/Global");
 
 module.exports = {
-  resetScoreboard: function() {
+  resetScore: function() {
     homeDigitVal = 0;
     awayDigitVal = 0;
     inningDigitVal = 0;
     ballsDigitVal = 0;
     strikesDigitVal = 0;
+    //reset home score
+    var command = buildCommand.displayCommand(homeDigitID[0],'0');
+    com.portWrite(command);
+    var command = buildCommand.displayCommand(homeDigitID[1],'0');
+    com.portWrite(command);
+    //reset away score
+    var command = buildCommand.displayCommand(awayDigitID[0],'0');
+    com.portWrite(command);
+    var command = buildCommand.displayCommand(awayDigitID[1],'0');
+    com.portWrite(command);
+    //reset inning
+    var command = buildCommand.displayCommand(inningDigitID,'0');
+    com.portWrite(command);
+    //reset balls
+    for (i = 0; i < ballsDigitID.length; i++) {
+    var command = buildCommand.displayCommand(ballsDigitID[i]-1,' ');
+    com.portWrite(command);}
+    //reset strikes
+    for (i = 0; i < strikesDigitID.length; i++) {
+    var command = buildCommand.displayCommand(strikesDigitID[i]-1,' ');
+    com.portWrite(command);}
+    //reset outs
+    for (i = 0; i < outsDigitID.length; i++) {
+      var command = buildCommand.displayCommand(outsDigitID[i]-1,' ');
+      com.portWrite(command);}   
   },
 
   addHome: function() {

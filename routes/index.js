@@ -25,6 +25,14 @@ router.get("/serialportClose", function(req, res, next) {
   });
 });
 
+//reset scoreboard 0000
+router.get("/resetScore", function(req, res, next) {
+  request.resetScore();
+  res.status(200).json({
+    message: "Success",
+  });
+});
+
 //add to home team score
 router.get("/addToHome", function(req, res, next) {
   request.addHome();
