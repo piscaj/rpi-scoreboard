@@ -10,7 +10,7 @@ router.get("/", function(req, res, next) {
 });
 
 //open serialport
-router.get("/serialOpen", function(req, res, next) {
+router.get("/serialportOpen", function(req, res, next) {
   portConnect.openPort();
   res.status(200).json({
     message: "Success",
@@ -18,7 +18,7 @@ router.get("/serialOpen", function(req, res, next) {
 });
 
 //close serialport
-router.get("/serialClose", function(req, res, next) {
+router.get("/serialportClose", function(req, res, next) {
   portConnect.closePort();
   res.status(200).json({
     message: "Success",
