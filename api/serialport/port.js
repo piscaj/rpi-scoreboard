@@ -37,9 +37,9 @@ module.exports = {
     //Fill the buffer with byte array
       for (i = 0; i < s.length; i++) {
         buffer[i]=s[i];
+        //write the buffer to the port
+        myPort.write(buffer);
     }
-    //write the buffer to the port
-    myPort.write(buffer);
     } else {
       console.log("Port is closed.");
     }
