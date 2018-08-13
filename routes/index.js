@@ -21,7 +21,7 @@ router.get("/serialportOpen", function(req, res, next) {
 router.get("/serialportClose", function(req, res, next) {
   portConnect.closePort();
   res.status(200).json({
-    message: "Success",
+    message: "Success"
   });
 });
 
@@ -30,6 +30,12 @@ router.get("/resetScore", function(req, res, next) {
   request.resetScore();
   res.status(200).json({
     message: "Success",
+    homeScore: "0",
+    awayScore: "0",
+    inningNumber: "0",
+    balls: "0",
+    strikes: "0",
+    outs: "0"
   });
 });
 
@@ -38,8 +44,8 @@ router.get("/addToHome", function(req, res, next) {
   request.addHome();
   res.status(200).json({
     message: "Success",
-    digit: homeDigitID,
-    value: homeDigitVal
+    digitID: homeDigitID,
+    homeScore: homeDigitVal
   });
 });
 
@@ -48,8 +54,8 @@ router.get("/subtractFromHome", function(req, res, next) {
   request.subtractHome();
   res.status(200).json({
     message: "Success",
-    digit: homeDigitID,
-    value: homeDigitVal
+    digitID: homeDigitID,
+    homeScore: homeDigitVal
   });
 });
 
@@ -58,8 +64,8 @@ router.get("/addToAway", function(req, res, next) {
   request.addAway();
   res.status(200).json({
     message: "Success",
-    digit: awayDigitID,
-    value: awayDigitVal
+    digitID: awayDigitID,
+    awayScore: awayDigitVal
   });
 });
 
@@ -68,8 +74,8 @@ router.get("/subtractFromAway", function(req, res, next) {
   request.subtractAway();
   res.status(200).json({
     message: "Success",
-    digit: awayDigitID,
-    value: awayDigitVal
+    digitID: awayDigitID,
+    awayScore: awayDigitVal
   });
 });
 
@@ -78,8 +84,8 @@ router.get("/addToInning", function(req, res, next) {
   request.addInning();
   res.status(200).json({
     message: "Success",
-    digit: inningDigitID,
-    value: inningDigitVal
+    digitID: inningDigitID,
+    inningNumber: inningDigitVal
   });
 });
 
@@ -88,8 +94,8 @@ router.get("/subtractFromInning", function(req, res, next) {
   request.subtractInning();
   res.status(200).json({
     message: "Success",
-    digit: inningDigitID,
-    value: inningDigitVal
+    digitID: inningDigitID,
+    inningNumber: inningDigitVal
   });
 });
 
@@ -98,8 +104,8 @@ router.get("/addToBalls", function(req, res, next) {
   request.addBalls();
   res.status(200).json({
     message: "Success",
-    digit: ballsDigitID,
-    value: ballsDigitVal
+    digitID: ballsDigitID,
+    balls: ballsDigitVal
   });
 });
 
@@ -108,8 +114,8 @@ router.get("/subtractFromBalls", function(req, res, next) {
   request.subtractBalls();
   res.status(200).json({
     message: "Success",
-    digit: ballsDigitID,
-    value: ballsDigitVal
+    digitID: ballsDigitID,
+    balls: ballsDigitVal
   });
 });
 
@@ -118,8 +124,8 @@ router.get("/addToStrikes", function(req, res, next) {
   request.addStrikes();
   res.status(200).json({
     message: "Success",
-    digit: strikesDigitID,
-    value: strikesDigitVal
+    digitID: strikesDigitID,
+    strikes: strikesDigitVal
   });
 });
 
@@ -128,8 +134,8 @@ router.get("/subtractFromStrikes", function(req, res, next) {
   request.subtractStrikes();
   res.status(200).json({
     message: "Success",
-    digit: strikesDigitID,
-    value: strikesDigitVal
+    digitID: strikesDigitID,
+    strikes: strikesDigitVal
   });
 });
 
@@ -138,8 +144,8 @@ router.get("/addToOuts", function(req, res, next) {
   request.addOuts();
   res.status(200).json({
     message: "Success",
-    digit: outsDigitID,
-    value: outsDigitVal
+    digitID: outsDigitID,
+    outs: outsDigitVal
   });
 });
 
@@ -148,9 +154,24 @@ router.get("/subtractFromOuts", function(req, res, next) {
   request.subtractOuts();
   res.status(200).json({
     message: "Success",
-    digit: outsDigitID,
-    value: outsDigitVal
+    digitID: outsDigitID,
+    outs: outsDigitVal
   });
 });
+
+//status request
+router.get("/getScore", function(req, res, next) {
+  request.subtractOuts();
+  res.status(200).json({
+    message: "Success",
+    homeScore: homeDigitVal,
+    awayScore: awayDigitVal,
+    inningNumber: inningDigitVal,
+    balls: ballsDigitVal,
+    strikes: strikesDigitVal,
+    outs: outsDigitVal
+  });
+});
+
 
 module.exports = router;
