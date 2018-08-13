@@ -1,6 +1,7 @@
 const buildCommand = require("./controlDigit");
 const com = require("../serialport/port");
 require("../scoreboard/Global");
+const splitNumber = require("./splitNumber");
 
 module.exports = {
   resetScore: function() {
@@ -221,4 +222,15 @@ module.exports = {
         com.portWrite(command);
     }
   },
+
+  setHome: function(n) {
+      var Val = splitNumber.splitNum(n);
+      console.log(Val);
+      for (i = 0; i < homeDigitID.length; i++) {
+        console.log(Val[i]);
+        var command = buildCommand.displayCommand(homeDigitID[i],Val[i]);
+        com.portWrite(command)
+        ;}
+    },
+
 };
