@@ -15,25 +15,29 @@ module.exports = {
     com.portWrite(command);
     var command = buildCommand.displayCommand(homeDigitID[1],'0');
     com.portWrite(command);
+    delay(2000);
     //reset away score
     var command = buildCommand.displayCommand(awayDigitID[0],'0');
     com.portWrite(command);
     var command = buildCommand.displayCommand(awayDigitID[1],'0');
     com.portWrite(command);
+    delay(2000);
     //reset inning
     var command = buildCommand.displayCommand(inningDigitID,'0');
     com.portWrite(command);
     //reset balls
     for (i = 0; i < ballsDigitID.length; i++) {
-    var command = buildCommand.displayCommand(ballsDigitID[i]-1,' ');
+    var command = buildCommand.displayCommand(ballsDigitID[i],' ');
     com.portWrite(command);}
+    delay(2000);
     //reset strikes
     for (i = 0; i < strikesDigitID.length; i++) {
-    var command = buildCommand.displayCommand(strikesDigitID[i]-1,' ');
+    var command = buildCommand.displayCommand(strikesDigitID[i],' ');
     com.portWrite(command);}
+    delay(2000);
     //reset outs
     for (i = 0; i < outsDigitID.length; i++) {
-      var command = buildCommand.displayCommand(outsDigitID[i]-1,' ');
+      var command = buildCommand.displayCommand(outsDigitID[i],' ');
       com.portWrite(command);}   
   },
 
