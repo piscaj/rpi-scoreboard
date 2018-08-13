@@ -1,16 +1,27 @@
 var express = require("express");
 var router = express.Router();
+const request = require("../api/scoreboard/processAPI");
 
-//GET: handle  null requests with a null message
 router.get("/", (req, res, next) => {
   res.status(200).json({
     message: " "
   });
 }); 
-//GET: set digit away to user input
-router.get("/:digitCommand", (req, res, next) => {
-  const val = req.params.digitCommand;
-  
+
+router.get("/:setAwayVal", (req, res, next) => {
+  if (isNaN(req.params.setAwayVal)) {
+    res.status(200).json({
+      message: "Something went wrong! You didn't enter a number.",
+      value: req.params.setAwayVal
+    });
+     } 
+     else {
+      request.setAway(req.params.setAwayVal);
+      res.status(200).json({
+      message: "Sucsess",
+      value: req.params.setAwayVal
+    });
+  }
 });
 
 module.exports = router;

@@ -225,12 +225,31 @@ module.exports = {
 
   setHome: function(n) {
       var Val = splitNumber.splitNum(n);
-      console.log(Val);
+      homeDigitVal = n.toString();
+      console.log(homeDigitVal);
       for (i = 0; i < homeDigitID.length; i++) {
         console.log(Val[i]);
         var command = buildCommand.displayCommand(homeDigitID[i],Val[i]);
         com.portWrite(command)
         ;}
+    },
+
+setAway: function(n) {
+  var Val = splitNumber.splitNum(n);
+  awayDigitVal = n.toString();
+  console.log(awayDigitVal);
+  for (i = 0; i < awayDigitID.length; i++) {
+    console.log(Val[i]);
+    var command = buildCommand.displayCommand(awayDigitID[i],Val[i]);
+    com.portWrite(command);}
+  },
+
+  setInning: function(n) {
+    var Val = splitNumber.splitNum(n);
+    inningDigitVal = n.toString();
+    console.log(inningDigitVal);
+    var command = buildCommand.displayCommand(inningDigitID,Val);
+    com.portWrite(command);
     },
 
 };
