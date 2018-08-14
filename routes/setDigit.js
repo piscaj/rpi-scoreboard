@@ -41,6 +41,126 @@ router.get("/resetScore", function(req, res, next) {
   });
 });
 
+//add to home team score
+router.get("/home/add/", function(req, res, next) {
+  request.addHome();
+  res.status(200).json({
+    message: "Success",
+    digitID: homeDigitID,
+    homeScore: homeDigitVal
+  });
+});
+
+//subtract from home team score
+router.get("/home/subtract", function(req, res, next) {
+  request.subtractHome();
+  res.status(200).json({
+    message: "Success",
+    digitID: homeDigitID,
+    homeScore: homeDigitVal
+  });
+});
+
+//add to away team score
+router.get("/away/add", function(req, res, next) {
+  request.addAway();
+  res.status(200).json({
+    message: "Success",
+    digitID: awayDigitID,
+    awayScore: awayDigitVal
+  });
+});
+
+//subtract from away team score
+router.get("/away/subtract", function(req, res, next) {
+  request.subtractAway();
+  res.status(200).json({
+    message: "Success",
+    digitID: awayDigitID,
+    awayScore: awayDigitVal
+  });
+});
+
+//add to inning
+router.get("/inning/add", function(req, res, next) {
+  request.addInning();
+  res.status(200).json({
+    message: "Success",
+    digitID: inningDigitID,
+    inningNumber: inningDigitVal
+  });
+});
+
+//subtract from inning
+router.get("/inning/subtract", function(req, res, next) {
+  request.subtractInning();
+  res.status(200).json({
+    message: "Success",
+    digitID: inningDigitID,
+    inningNumber: inningDigitVal
+  });
+});
+
+//add to balls
+router.get("/balls/add", function(req, res, next) {
+  request.addBalls();
+  res.status(200).json({
+    message: "Success",
+    digitID: ballsDigitID,
+    balls: ballsDigitVal
+  });
+});
+
+//subtract from balls
+router.get("/balls/subtract", function(req, res, next) {
+  request.subtractBalls();
+  res.status(200).json({
+    message: "Success",
+    digitID: ballsDigitID,
+    balls: ballsDigitVal
+  });
+});
+
+//add to strikes
+router.get("/strikes/add", function(req, res, next) {
+  request.addStrikes();
+  res.status(200).json({
+    message: "Success",
+    digitID: strikesDigitID,
+    strikes: strikesDigitVal
+  });
+});
+
+//subtract from strikes
+router.get("/strikes/subtract", function(req, res, next) {
+  request.subtractStrikes();
+  res.status(200).json({
+    message: "Success",
+    digitID: strikesDigitID,
+    strikes: strikesDigitVal
+  });
+});
+
+//add to outs
+router.get("/outs/add", function(req, res, next) {
+  request.addOuts();
+  res.status(200).json({
+    message: "Success",
+    digitID: outsDigitID,
+    outs: outsDigitVal
+  });
+});
+
+//subtract from outs
+router.get("/outs/subtract", function(req, res, next) {
+  request.subtractOuts();
+  res.status(200).json({
+    message: "Success",
+    digitID: outsDigitID,
+    outs: outsDigitVal
+  });
+});
+
 //set home score with users number
 router.get("/home/:setHomeVal", (req, res, next) => {
   if (isNaN(req.params.setHomeVal)) {
@@ -52,6 +172,7 @@ router.get("/home/:setHomeVal", (req, res, next) => {
     request.setHome(req.params.setHomeVal);
     res.status(200).json({
       message: "Sucsess",
+      digitID: homeDigitID,
       value: req.params.setHomeVal
     });
   }
@@ -68,6 +189,7 @@ router.get("/away/:setAwayVal", (req, res, next) => {
     request.setAway(req.params.setAwayVal);
     res.status(200).json({
       message: "Sucsess",
+      digitID: awayDigitID,
       value: req.params.setAwayVal
     });
   }
@@ -84,129 +206,10 @@ router.get("/inning/:setInningVal", (req, res, next) => {
     request.setAway(req.params.setInningVal);
     res.status(200).json({
       message: "Sucsess",
+      digitID: inningDigitID,
       value: req.params.setInningVal
     });
   }
-});
-
-//add to home team score
-router.get("/addToHome", function(req, res, next) {
-  request.addHome();
-  res.status(200).json({
-    message: "Success",
-    digitID: homeDigitID,
-    homeScore: homeDigitVal
-  });
-});
-
-//subtract from home team score
-router.get("/subtractFromHome", function(req, res, next) {
-  request.subtractHome();
-  res.status(200).json({
-    message: "Success",
-    digitID: homeDigitID,
-    homeScore: homeDigitVal
-  });
-});
-
-//add to away team score
-router.get("/addToAway", function(req, res, next) {
-  request.addAway();
-  res.status(200).json({
-    message: "Success",
-    digitID: awayDigitID,
-    awayScore: awayDigitVal
-  });
-});
-
-//subtract from away team score
-router.get("/subtractFromAway", function(req, res, next) {
-  request.subtractAway();
-  res.status(200).json({
-    message: "Success",
-    digitID: awayDigitID,
-    awayScore: awayDigitVal
-  });
-});
-
-//add to inning
-router.get("/addToInning", function(req, res, next) {
-  request.addInning();
-  res.status(200).json({
-    message: "Success",
-    digitID: inningDigitID,
-    inningNumber: inningDigitVal
-  });
-});
-
-//subtract from inning
-router.get("/subtractFromInning", function(req, res, next) {
-  request.subtractInning();
-  res.status(200).json({
-    message: "Success",
-    digitID: inningDigitID,
-    inningNumber: inningDigitVal
-  });
-});
-
-//add to balls
-router.get("/addToBalls", function(req, res, next) {
-  request.addBalls();
-  res.status(200).json({
-    message: "Success",
-    digitID: ballsDigitID,
-    balls: ballsDigitVal
-  });
-});
-
-//subtract from balls
-router.get("/subtractFromBalls", function(req, res, next) {
-  request.subtractBalls();
-  res.status(200).json({
-    message: "Success",
-    digitID: ballsDigitID,
-    balls: ballsDigitVal
-  });
-});
-
-//add to strikes
-router.get("/addToStrikes", function(req, res, next) {
-  request.addStrikes();
-  res.status(200).json({
-    message: "Success",
-    digitID: strikesDigitID,
-    strikes: strikesDigitVal
-  });
-});
-
-//subtract from strikes
-router.get("/subtractFromStrikes", function(req, res, next) {
-  request.subtractStrikes();
-  res.status(200).json({
-    message: "Success",
-    digitID: strikesDigitID,
-    strikes: strikesDigitVal
-  });
-});
-
-//add to outs
-router.get("/addToOuts", function(req, res, next) {
-  request.addOuts();
-  res.status(200).json({
-    message: "Success",
-    digitID: outsDigitID,
-    outs: outsDigitVal
-  });
-});
-
-//subtract from outs
-router.get("/subtractFromOuts", function(req, res, next) {
-  request.subtractOuts();
-  res.status(200).json({
-    message: "Success",
-    digitID: outsDigitID,
-    outs: outsDigitVal
-  });
 });
 
 //status request
