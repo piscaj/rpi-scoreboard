@@ -150,7 +150,100 @@ module.exports = {
       com.portWrite(command);
     }
   },
-  
+
+  addBalls: function() {
+    const max = 4;
+    if (ballsDigitVal < max) {
+      ballsDigitVal++;
+      command = buildCommand.displayCommand(
+        ballsDigitID,
+        ballsDigitVal.toString()
+      );
+      com.portWrite(command);
+    }
+    else{ballsDigitVal = 0
+      command = buildCommand.displayCommand(
+        ballsDigitID,
+        ballsDigitVal.toString()
+      );
+      com.portWrite(command);
+    }
+  },
+
+  subtractBalls: function() {
+    const min = 0;
+    if (ballsDigitVal > min) {
+      ballsDigitVal--;
+      command = ballsCommand.displayCommand(
+        ballsDigitID,
+        ballsDigitVal.toString()
+      );
+      com.portWrite(command);
+    }
+  },
+
+  addStrikes: function() {
+    const max = 3;
+    if (strikesDigitVal < max) {
+      strikesDigitVal++;
+      command = buildCommand.displayCommand(
+        strikesDigitID,
+        strikesDigitVal.toString()
+      );
+      com.portWrite(command);
+    }
+    else{strikesDigitVal = 0
+      command = buildCommand.displayCommand(
+       strikesDigitID,
+        strikesigitVal.toString()
+      );
+      com.portWrite(command);
+    }
+  },
+
+  subtractStrikes: function() {
+    const min = 0;
+    if (strikesDigitVal > min) {
+      striklesDigitVal--;
+      command = buildCommand.displayCommand(
+        strikesDigitID,
+        strikesDigitVal.toString()
+      );
+      com.portWrite(command);
+    }
+  },
+
+  addOuts: function() {
+     const max = 3;
+    if (outsDigitVal < max) {
+      outsDigitVal++;
+      command = buildCommand.displayCommand(
+        outsDigitID,
+        outsDigitVal.toString()
+      );
+      com.portWrite(command);
+    }
+    else{outsDigitVal = 0
+      command = buildCommand.displayCommand(
+        outsDigitID,
+        outsDigitVal.toString()
+      );
+      com.portWrite(command);
+    }
+  },
+
+  subtractOuts: function() {
+    const min = 0;
+    if (outsDigitVal > min) {
+      outsDigitVal--;
+      command = outsCommand.displayCommand(
+        outsDigitID,
+        outsDigitVal.toString()
+      );
+      com.portWrite(command);
+    }
+  },
+/*  
   addBalls: function() {
     const max = 4;
     const turnOnDot = '8'
@@ -222,6 +315,7 @@ module.exports = {
         com.portWrite(command);
     }
   },
+*/
 
   setHome: function(n) {
       var Val = splitNumber.splitNum(n);
