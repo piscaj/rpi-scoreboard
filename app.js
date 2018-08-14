@@ -7,9 +7,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var setDigitRouter = require('./routes/setDigit');
 var testDigitRouter = require('./routes/testDigit');
-var setDigitHomeRouter = require('./routes/setDigitHome');
-var setDigitAwayRouter = require('./routes/setDigitAway');
-var setDigitInningRouter = require('./routes/setDigitInning');
 
 var app = express();
 
@@ -27,9 +24,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/setDigit',setDigitRouter);
 app.use('/testDigit',testDigitRouter);
-app.use('/setDigitHome',setDigitHomeRouter);
-app.use('/setDigitAway',setDigitAwayRouter);
-app.use('/setDigitInning',setDigitInningRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

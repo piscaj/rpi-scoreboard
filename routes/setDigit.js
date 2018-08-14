@@ -41,6 +41,54 @@ router.get("/resetScore", function(req, res, next) {
   });
 });
 
+router.get("/home/:setHomeVal", (req, res, next) => {
+  if (isNaN(req.params.setHomeVal)) {
+    res.status(200).json({
+      message: "Something went wrong! You didn't enter a number.",
+      value: req.params.setHomeVal
+    });
+     } 
+     else {
+      request.setHome(req.params.setHomeVal);
+      res.status(200).json({
+      message: "Sucsess",
+      value: req.params.setHomeVal
+    });
+  }
+});
+
+router.get("/away/:setAwayVal", (req, res, next) => {
+  if (isNaN(req.params.setAwayVal)) {
+    res.status(200).json({
+      message: "Something went wrong! You didn't enter a number.",
+      value: req.params.setAwayVal
+    });
+     } 
+     else {
+      request.setAway(req.params.setAwayVal);
+      res.status(200).json({
+      message: "Sucsess",
+      value: req.params.setAwayVal
+    });
+  }
+});
+
+router.get("/inning/:setInningVal", (req, res, next) => {
+  if (isNaN(req.params.setInningVal)) {
+    res.status(200).json({
+      message: "Something went wrong! You didn't enter a number.",
+      value: req.params.setInningVal
+    });
+     } 
+     else {
+      request.setAway(req.params.setInningVal);
+      res.status(200).json({
+      message: "Sucsess",
+      value: req.params.setInningVal
+    });
+  }
+});
+
 //add to home team score
 router.get("/addToHome", function(req, res, next) {
   request.addHome();
