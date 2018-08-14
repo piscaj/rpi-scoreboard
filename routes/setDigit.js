@@ -41,6 +41,7 @@ router.get("/resetScore", function(req, res, next) {
   });
 });
 
+//set home score with users number
 router.get("/home/:setHomeVal", (req, res, next) => {
   if (isNaN(req.params.setHomeVal)) {
     res.status(200).json({
@@ -57,6 +58,7 @@ router.get("/home/:setHomeVal", (req, res, next) => {
   }
 });
 
+//set away score with users number
 router.get("/away/:setAwayVal", (req, res, next) => {
   if (isNaN(req.params.setAwayVal)) {
     res.status(200).json({
@@ -73,6 +75,7 @@ router.get("/away/:setAwayVal", (req, res, next) => {
   }
 });
 
+//set inning with users number
 router.get("/inning/:setInningVal", (req, res, next) => {
   if (isNaN(req.params.setInningVal)) {
     res.status(200).json({
