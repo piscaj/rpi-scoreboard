@@ -32,15 +32,15 @@ module.exports = {
   },
   //send data to port
   portWrite: function(s) {
-    console.log("|------------Message sent to comport----------->>>>", s)
+    console.log("|------------Message sent to comport----------->>>>", s);
     var buffer = new Buffer.alloc(10); // make a buffer for outbound data
     if (myPort.isOpen) {
-    //Fill the buffer with byte array
+      //Fill the buffer with byte array
       for (i = 0; i < s.length; i++) {
-        buffer[i]=s[i];
-    }
-    //write the buffer to the port
-    myPort.write(buffer);
+        buffer[i] = s[i];
+      }
+      //write the buffer to the port
+      myPort.write(buffer);
     } else {
       console.log("Port is closed.");
     }
@@ -59,7 +59,7 @@ myPort.on("error", showError);
 function portOpen() {
   console.log("Port open. Data rate: " + myPort.baudRate);
   portBaudRate = myPort.baudRate;
-  portStatus = 'open';
+  portStatus = "open";
 }
 //on data
 function readSerialData(data) {
@@ -68,8 +68,8 @@ function readSerialData(data) {
 //on port closed
 function portClose() {
   console.log("Port closed.");
-  portBaudrate = myPort.baudRate.toString();;
-  portStatus = 'closed';
+  portBaudrate = myPort.baudRate.toString();
+  portStatus = "closed";
 }
 //on error
 function showError(error) {

@@ -25,7 +25,6 @@ router.get("/Score", function(req, res, next) {
 
 //serialport status
 router.get("/serialport", function(req, res, next) {
-
   res.status(200).json({
     message: "Success",
     connection: portStatus,
