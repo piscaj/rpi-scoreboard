@@ -7,7 +7,7 @@ const portConnect = require("../api/serialport/port");
 //default page
 router.get("/", function(req, res, next) {
   res.status(200).json({
-    message: "Something went wrong! Paramiter needed.",
+    message: "Something went wrong! Paramiter needed."
   });
 });
 
@@ -15,7 +15,7 @@ router.get("/", function(req, res, next) {
 router.get("/serialportOpen", function(req, res, next) {
   portConnect.openPort();
   res.status(200).json({
-    message: "Success",
+    message: "Success"
   });
 });
 
@@ -48,10 +48,9 @@ router.get("/home/:setHomeVal", (req, res, next) => {
       message: "Something went wrong! You didn't enter a number.",
       value: req.params.setHomeVal
     });
-     } 
-     else {
-      request.setHome(req.params.setHomeVal);
-      res.status(200).json({
+  } else {
+    request.setHome(req.params.setHomeVal);
+    res.status(200).json({
       message: "Sucsess",
       value: req.params.setHomeVal
     });
@@ -65,10 +64,9 @@ router.get("/away/:setAwayVal", (req, res, next) => {
       message: "Something went wrong! You didn't enter a number.",
       value: req.params.setAwayVal
     });
-     } 
-     else {
-      request.setAway(req.params.setAwayVal);
-      res.status(200).json({
+  } else {
+    request.setAway(req.params.setAwayVal);
+    res.status(200).json({
       message: "Sucsess",
       value: req.params.setAwayVal
     });
@@ -82,10 +80,9 @@ router.get("/inning/:setInningVal", (req, res, next) => {
       message: "Something went wrong! You didn't enter a number.",
       value: req.params.setInningVal
     });
-     } 
-     else {
-      request.setAway(req.params.setInningVal);
-      res.status(200).json({
+  } else {
+    request.setAway(req.params.setInningVal);
+    res.status(200).json({
       message: "Sucsess",
       value: req.params.setInningVal
     });
@@ -225,6 +222,5 @@ router.get("/getScore", function(req, res, next) {
     outs: outsDigitVal
   });
 });
-
 
 module.exports = router;

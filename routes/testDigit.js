@@ -8,11 +8,13 @@ router.get("/", (req, res, next) => {
   res.status(200).json({
     message: " "
   });
-}); 
+});
 //GET: handle commands to digit
 router.get("/:digitCommand", (req, res, next) => {
   if (req.params.digitCommand.includes(":")) {
-    const n = req.params.digitCommand.substring(0,req.params.digitCommand.indexOf(":")
+    const n = req.params.digitCommand.substring(
+      0,
+      req.params.digitCommand.indexOf(":")
     );
     console.log(n);
     const s = req.params.digitCommand.substring(
@@ -27,7 +29,7 @@ router.get("/:digitCommand", (req, res, next) => {
     });
   } else {
     res.status(200).json({
-      message: "Something went wrong!",
+      message: "Something went wrong!"
     });
   }
 });
