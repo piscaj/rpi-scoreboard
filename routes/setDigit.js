@@ -2,28 +2,11 @@ var express = require("express");
 var router = express.Router();
 require("../api/scoreboard/Global");
 const request = require("../api/scoreboard/processAPI");
-const portConnect = require("../api/serialport/port");
 
 //default page
 router.get("/", function(req, res, next) {
   res.status(200).json({
     message: "Something went wrong! Paramiter needed."
-  });
-});
-
-//open serialport
-router.get("/serialportOpen", function(req, res, next) {
-  portConnect.openPort();
-  res.status(200).json({
-    message: "Success"
-  });
-});
-
-//close serialport
-router.get("/serialportClose", function(req, res, next) {
-  portConnect.closePort();
-  res.status(200).json({
-    message: "Success"
   });
 });
 
@@ -210,20 +193,6 @@ router.get("/inning/:setInningVal", (req, res, next) => {
       value: req.params.setInningVal
     });
   }
-});
-
-//status request
-router.get("/getScore", function(req, res, next) {
-  request.subtractOuts();
-  res.status(200).json({
-    message: "Success",
-    homeScore: homeDigitVal,
-    awayScore: awayDigitVal,
-    inningNumber: inningDigitVal,
-    balls: ballsDigitVal,
-    strikes: strikesDigitVal,
-    outs: outsDigitVal
-  });
 });
 
 module.exports = router;

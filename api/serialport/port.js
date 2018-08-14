@@ -1,3 +1,4 @@
+require("../scoreboard/Global.js");
 // include Serialport library
 var SerialPort = require("serialport");
 //Set port here
@@ -57,6 +58,8 @@ myPort.on("error", showError);
 //on port open
 function portOpen() {
   console.log("Port open. Data rate: " + myPort.baudRate);
+  portBaudRate = myPort.baudRate;
+  portStatus = 'open';
 }
 //on data
 function readSerialData(data) {
@@ -65,8 +68,11 @@ function readSerialData(data) {
 //on port closed
 function portClose() {
   console.log("Port closed.");
+  portBaudrate = myPort.baudRate.toString();;
+  portStatus = 'closed';
 }
 //on error
 function showError(error) {
+  portErr = error.toString();
   console.log(error);
 }
