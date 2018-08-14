@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var setDigitRouter = require('./routes/setDigit');
 var testDigitRouter = require('./routes/testDigit');
 var setDigitHomeRouter = require('./routes/setDigitHome');
 var setDigitAwayRouter = require('./routes/setDigitAway');
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/setDigit',setDigitRouter);
 app.use('/testDigit',testDigitRouter);
 app.use('/setDigitHome',setDigitHomeRouter);
 app.use('/setDigitAway',setDigitAwayRouter);
