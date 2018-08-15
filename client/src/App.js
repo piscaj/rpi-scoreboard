@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
-import TestDisplay from "./testDisplayCommand";
+import Scoreboard from "./components/scoreboard";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TestDisplay />
+        <Scoreboard />
       </div>
     );
   }
