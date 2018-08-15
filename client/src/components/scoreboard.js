@@ -1,26 +1,29 @@
 import React, { Component } from "react";
 
-class Scoreboard extends React{
+class Scoreboard extends Component{
   constructor(props){
     super(props);
     this.state = {
-      count:0
+      homeScore:0
     }
   }
-  Decrement = () => {
-    if(this.state.count > 0){
-       this.setState({count: this.state.count -1 })
+  subtractHome = () => {
+    if(this.state.homeScore > 0){
+       this.setState({homeScore: this.state.homeScore -1 })
     } else{
-      this.setState({count: this.state.count})
+      this.setState({homeScore: this.state.homeScore})
     }
   }
-  Increment = () => {this.setState({count: this.state.count +1 })}
+  addHome = () => {this.setState({homeScore: this.state.homeScore +1 })}
   render() {
     return(
       <div>
-         <button onClick={this.Decrement}>Decrement</button>
-        <div>{this.state.count}</div>
-        <button onClick={this.Increment}>Incriment</button>
+        <div>
+          <div>Home</div>
+        <button onClick={this.subtractHome}>-</button>
+          {this.state.homeScore}
+        <button onClick={this.addHome}>+</button>
+        </div>
       </div>
     );
   }

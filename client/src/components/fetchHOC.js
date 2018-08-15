@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 const withFetching = url => Component =>
-  class WithFetching extends React{
+  class WithFetching extends Component{
     constructor(props) {
       super(props);
 
