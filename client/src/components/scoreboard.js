@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button, Well } from 'react-bootstrap';
 
 class Scoreboard extends Component{
   constructor(props){
@@ -20,9 +21,11 @@ class Scoreboard extends Component{
       <div>
         <div>
           <div>Home</div>
-        <button onClick={this.subtractHome}>-</button>
-          {this.state.homeScore}
-        <button onClick={this.addHome}>+</button>
+          <Well>
+          <Button bsStyle="primary" onClick={this.subtractHome}>-</Button>
+          <div>{this.state.homeScore}</div>
+          <Button bsStyle="primary" onClick={this.addHome}>+</Button>
+          </Well>
         </div>
       </div>
     );
