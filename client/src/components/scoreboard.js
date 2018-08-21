@@ -10,7 +10,7 @@ class Scoreboard extends Component {
       error: null
     };
   }
-
+  
   componentDidMount() {
     fetch("/status/score")
       .then(response => {
