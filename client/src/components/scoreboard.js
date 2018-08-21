@@ -10,7 +10,7 @@ class Scoreboard extends Component {
       error: null
     };
   }
-  
+
   componentDidMount() {
     fetch("/status/score")
       .then(response => {
@@ -38,13 +38,13 @@ class Scoreboard extends Component {
     return (
       <div>
         <div>
+          <Well className="well">
           <div>Home</div>
-          <Well>
-            <Button bsStyle="primary" onClick={this.subtractHome}>
+            <Button className="button" bsStyle="primary" onClick={this.subtractHome}>
               -
             </Button>
-            <div>{this.state.homeScore}</div>
-            <Button bsStyle="primary" onClick={this.addHome}>
+            <span className="number">{this.state.homeScore}</span>
+            <Button className="button" bsStyle="primary" onClick={this.addHome}>
               +
             </Button>
           </Well>
