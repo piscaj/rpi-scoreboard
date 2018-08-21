@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Button, Well } from "react-bootstrap";
+import { Well } from "react-bootstrap";
 
 class Scoreboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       homeScore: 0,
+      awayScore: 0,
       dataLoading: false,
       error: null
     };
@@ -16,7 +17,11 @@ class Scoreboard extends Component {
       .then(response => {
         return response.json();
       })
-      .then(data => this.setState({ homeScore: data.homeScore }));
+      .then(data => this.setState({
+        homeScore: data.homeScore,
+        awayScore: data.awayScore
+      
+      }));
   }
 
   subtractHome = () => {
@@ -34,19 +39,35 @@ class Scoreboard extends Component {
       })
       .then(data => this.setState({ homeScore: data.homeScore }));
   };
+
+  subtractAway = () => {
+    fetch("/setDigit/away/subtract")
+      .then(response => {
+        return response.json();
+      })
+      .then(data => this.setState({ awayScore: data.awayScore }));
+  };
+
+  addAway = () => {
+    fetch("/setDigit/away/add")
+      .then(response => {
+        return response.json();
+      })
+      .then(data => this.setState({ awayScore: data.awayScore }));
+  };
   render() {
     return (
       <div>
         <div>
-          <Well className="well">
-          <div>Home</div>
-            <Button className="button" bsStyle="primary" onClick={this.subtractHome}>
-              -
-            </Button>
+          <Well>
+          <div className="number" >Home</div>
+            <button className="button-3d" bsStyle="primary" onClick={this.subtractHome}>-</button>
             <span className="number">{this.state.homeScore}</span>
-            <Button className="button" bsStyle="primary" onClick={this.addHome}>
-              +
-            </Button>
+            <button className="button-3d" bsStyle="primary" onClick={this.addHome}>+</button>
+            <div className="number" >Away</div>
+            <button className="button-3d" bsStyle="primary" onClick={this.subtractAway}>-</button>
+            <span className="number">{this.state.awayScore}</span>
+            <button className="button-3d" bsStyle="primary" onClick={this.addAway}>+</button>
           </Well>
         </div>
       </div>

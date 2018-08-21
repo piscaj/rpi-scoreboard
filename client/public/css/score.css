@@ -1,34 +1,46 @@
-.well{
-    text-align:center;
-  }
-  .number{
-   /***  CSS Position  ***/
-   position:relative;
+body {
+  text-align: center;
+  color:#ecf0f1;
+  background-color: #2c3e50;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin-top: 20px;
+}
 
-   /***  CSS Box Model  ***/
-   width:100px;
-   height:60px;
-   margin:5px;
-   margin-top:10px;
-   margin-bottom:10px;
-   margin-left:10px;
-   margin-right:10px;
- 
-   /***  CSS Text and Font  ***/
-   font-family:'Tahoma',sans-serif;
-   font-size:48px;
-   color:rgb(142, 136, 146);
-   text-align:center;
-   word-spacing:normal;
-
+.button-3d {
+  position:relative;
+  width: auto;
+  display:inline-block;
+  color:#ecf0f1;
+  text-decoration:none;
+  border-radius:5px;
+  border:solid 1px #f39c12;
+  background:#e67e22;
+  text-align:center;
+  padding:16px 18px 14px;
+  margin: 12px;
   
-  }
+  -webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	
+  -webkit-box-shadow: 0px 6px 0px #d35400;
+  -moz-box-shadow: 0px 6px 0px #d35400;
+  box-shadow: 0px 6px 0px #d35400;
+}
 
-  .button{
-    /***  CSS Text and Font  ***/
-    font-family:'Tahoma',sans-serif;
-    font-size:38px;
-    text-align:center;
-  
-  }
+.button-3d:active{
+    -webkit-box-shadow: 0px 2px 0px #d35400;
+    -moz-box-shadow: 0px 2px 0px #d35400;
+    box-shadow: 0px 2px 0px #d35400;
+    position:relative;
+    top:4px;
+}
+
+.number{
+  font-family:'Tahoma',sans-serif;
+  font-size:24px;
+  color:rgb(66, 65, 66);
+
+}
+
   
