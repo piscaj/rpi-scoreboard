@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Well } from "react-bootstrap";
+import { Well, Grid, Row, Col } from "react-bootstrap";
 
 class Scoreboard extends Component {
   constructor(props) {
@@ -17,11 +17,12 @@ class Scoreboard extends Component {
       .then(response => {
         return response.json();
       })
-      .then(data => this.setState({
-        homeScore: data.homeScore,
-        awayScore: data.awayScore
-      
-      }));
+      .then(data =>
+        this.setState({
+          homeScore: data.homeScore,
+          awayScore: data.awayScore
+        })
+      );
   }
 
   subtractHome = () => {
@@ -58,18 +59,37 @@ class Scoreboard extends Component {
   render() {
     return (
       <div>
-        <div>
-          <Well>
-          <div className="number" >Home</div>
-            <button className="button-3d" bsStyle="primary" onClick={this.subtractHome}>-</button>
-            <span className="number">{this.state.homeScore}</span>
-            <button className="button-3d" bsStyle="primary" onClick={this.addHome}>+</button>
-            <div className="number" >Away</div>
-            <button className="button-3d" bsStyle="primary" onClick={this.subtractAway}>-</button>
-            <span className="number">{this.state.awayScore}</span>
-            <button className="button-3d" bsStyle="primary" onClick={this.addAway}>+</button>
+        <Grid>
+        <Well>
+          <Row className="show-grid">
+  
+            <Col xs={12} md={6}>
+              <label>Home</label>
+              <div className="controls-wrapper">
+                <button className="minus" onClick={this.subtractHome}>
+                  -
+                </button>
+                <input name="quantity" value={this.state.homeScore} />
+                <button className="plus" onClick={this.addHome}>
+                  +
+                </button>
+              </div>
+            </Col>
+            <Col xs={12} md={6}>
+              <label>Away</label>
+              <div className="controls-wrapper">
+                <button className="minus" onClick={this.subtractAway}>
+                  -
+                </button>
+                <input name="quantity" value={this.state.awayScore} />
+                <button className="plus" onClick={this.addAway}>
+                  +
+                </button>
+              </div>
+            </Col>
+          </Row>
           </Well>
-        </div>
+        </Grid>
       </div>
     );
   }
