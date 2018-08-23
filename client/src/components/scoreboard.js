@@ -60,34 +60,33 @@ class Scoreboard extends Component {
     return (
       <div>
         <Grid>
-        <Well>
-          <Row className="show-grid">
-  
-            <Col xs={12} md={6}>
-              <label>Home</label>
-              <div className="controls-wrapper">
-                <button className="minus" onClick={this.subtractHome}>
-                  -
-                </button>
-                <input name="quantity" value={this.state.homeScore} />
-                <button className="plus" onClick={this.addHome}>
-                  +
-                </button>
-              </div>
-            </Col>
-            <Col xs={12} md={6}>
-              <label>Away</label>
-              <div className="controls-wrapper">
-                <button className="minus" onClick={this.subtractAway}>
-                  -
-                </button>
-                <input name="quantity" value={this.state.awayScore} />
-                <button className="plus" onClick={this.addAway}>
-                  +
-                </button>
-              </div>
-            </Col>
-          </Row>
+          <Well>
+            <Row className="show-grid">
+              <Col xs={12} md={6}>
+                <label>Home</label>
+                <div className="controls-wrapper">
+                  <button className="minus" onClick={this.subtractHome}>
+                    -
+                  </button>
+                  <input name="quantity" value={this.state.homeScore} />
+                  <button className="plus" onClick={this.addHome}>
+                    +
+                  </button>
+                </div>
+              </Col>
+              <Col xs={12} md={6}>
+                <label>Away</label>
+                <div className="controls-wrapper">
+                  <button className="minus" onClick={this.subtractAway}>
+                    -
+                  </button>
+                  <input name="quantity" value={this.state.awayScore} />
+                  <button className="plus" onClick={this.addAway}>
+                    +
+                  </button>
+                </div>
+              </Col>
+            </Row>
           </Well>
         </Grid>
       </div>
