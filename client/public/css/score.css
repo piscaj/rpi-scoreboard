@@ -36,10 +36,6 @@ body {
 }
 
 .btn:hover {
-  color: #fff !important;
-  text-decoration: none;
-  }
+  background-color: inherit;
+}
 
-  .btn:active {
-    border-style: outset;
-  }
