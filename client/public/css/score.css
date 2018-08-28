@@ -29,6 +29,7 @@ body {
   height:60px;
   position:relative;
   top:-12px;
-
-
+}
+.btn:focus {
+  outline: none;
 }
