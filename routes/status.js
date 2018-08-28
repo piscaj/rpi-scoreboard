@@ -16,7 +16,7 @@ router.get("/Score", function(req, res, next) {
     message: "Success",
     homeScore: homeDigitVal,
     awayScore: awayDigitVal,
-    inningNumber: inningDigitVal,
+    inning: inningDigitVal,
     balls: ballsDigitVal,
     strikes: strikesDigitVal,
     outs: outsDigitVal
