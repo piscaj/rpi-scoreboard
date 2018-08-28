@@ -4,6 +4,8 @@ body {
   font-weight: 100;
   font-size: 10px;
   text-align: center;
+  position:relative;
+  top:10px;
 }
 
 .title{
