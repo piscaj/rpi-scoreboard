@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Glyphicon } from "react-bootstrap";
-import { portStatus }from "../../../api/scoreboard/Global";
 
 class Scoreboard extends Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class Scoreboard extends Component {
   }
 
   componentDidMount() {
-    if(portStatus === "closed"){fetch("/status/serialport/open");}
+    fetch("/status/serialport/open");
     fetch("/status/score")
       .then(response => {
         return response.json();
