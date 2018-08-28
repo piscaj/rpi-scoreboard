@@ -25,15 +25,15 @@ module.exports = {
     com.portWrite(command);
     //reset balls
     for (i = 0; i < ballsDigitID.length; i++) {
-    var command = buildCommand.displayCommand(ballsDigitID[i],' ');
+    var command = buildCommand.displayCommand(ballsDigitID[i],'0');
     com.portWrite(command);}
     //reset strikes
     for (i = 0; i < strikesDigitID.length; i++) {
-    var command = buildCommand.displayCommand(strikesDigitID[i],' ');
+    var command = buildCommand.displayCommand(strikesDigitID[i],'0');
     com.portWrite(command);}
     //reset outs
     for (i = 0; i < outsDigitID.length; i++) {
-      var command = buildCommand.displayCommand(outsDigitID[i],' ');
+      var command = buildCommand.displayCommand(outsDigitID[i],'0');
       com.portWrite(command);}   
   },
 
