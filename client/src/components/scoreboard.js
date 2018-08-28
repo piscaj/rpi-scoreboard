@@ -24,7 +24,11 @@ class Scoreboard extends Component {
       .then(data =>
         this.setState({
           homeScore: data.homeScore,
-          awayScore: data.awayScore
+          awayScore: data.awayScore,
+          outs: data.outs,
+          balls: data.balls,
+          strikes: data.strikes,
+          inning: data.inning,
         })
       );
   }
