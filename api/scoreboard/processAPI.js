@@ -152,7 +152,7 @@ module.exports = {
   },
 
   addBalls: function() {
-    const max = 4;
+    const max = 3;
     if (ballsDigitVal < max) {
       ballsDigitVal++;
       command = buildCommand.displayCommand(
@@ -174,7 +174,7 @@ module.exports = {
     const min = 0;
     if (ballsDigitVal > min) {
       ballsDigitVal--;
-      command = ballsCommand.displayCommand(
+      command = buildCommand.displayCommand(
         ballsDigitID,
         ballsDigitVal.toString()
       );
@@ -183,7 +183,7 @@ module.exports = {
   },
 
   addStrikes: function() {
-    const max = 3;
+    const max = 2;
     if (strikesDigitVal < max) {
       strikesDigitVal++;
       command = buildCommand.displayCommand(
@@ -195,7 +195,7 @@ module.exports = {
     else{strikesDigitVal = 0
       command = buildCommand.displayCommand(
        strikesDigitID,
-        strikesigitVal.toString()
+        strikesDigitVal.toString()
       );
       com.portWrite(command);
     }
@@ -204,7 +204,7 @@ module.exports = {
   subtractStrikes: function() {
     const min = 0;
     if (strikesDigitVal > min) {
-      striklesDigitVal--;
+      strikesDigitVal--;
       command = buildCommand.displayCommand(
         strikesDigitID,
         strikesDigitVal.toString()
@@ -214,8 +214,9 @@ module.exports = {
   },
 
   addOuts: function() {
-     const max = 3;
-    if (outsDigitVal < max) {
+     const max = 2;
+
+     if (outsDigitVal < max) {
       outsDigitVal++;
       command = buildCommand.displayCommand(
         outsDigitID,
@@ -223,6 +224,7 @@ module.exports = {
       );
       com.portWrite(command);
     }
+    
     else{outsDigitVal = 0
       command = buildCommand.displayCommand(
         outsDigitID,
@@ -236,7 +238,7 @@ module.exports = {
     const min = 0;
     if (outsDigitVal > min) {
       outsDigitVal--;
-      command = outsCommand.displayCommand(
+      command = buildCommand.displayCommand(
         outsDigitID,
         outsDigitVal.toString()
       );

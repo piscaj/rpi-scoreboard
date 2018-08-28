@@ -17,7 +17,7 @@ router.get("/resetScore", function(req, res, next) {
     message: "Success",
     homeScore: "0",
     awayScore: "0",
-    inningNumber: "0",
+    inning: "0",
     balls: "0",
     strikes: "0",
     outs: "0"
@@ -70,7 +70,7 @@ router.get("/inning/add", function(req, res, next) {
   res.status(200).json({
     message: "Success",
     digitID: inningDigitID,
-    inningNumber: inningDigitVal
+    inning: inningDigitVal
   });
 });
 
@@ -80,7 +80,7 @@ router.get("/inning/subtract", function(req, res, next) {
   res.status(200).json({
     message: "Success",
     digitID: inningDigitID,
-    inningNumber: inningDigitVal
+    inning: inningDigitVal
   });
 });
 

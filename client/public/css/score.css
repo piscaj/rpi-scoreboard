@@ -1,59 +1,32 @@
 body {
-  background: rgb(16, 109, 8);
+  background: rgb(255, 255, 255);
   font-family: sans-serif;
   font-weight: 100;
   font-size: 10px;
   text-align: center;
 }
-label {
-  font-size: 2em;
-  color: #444;
-}
-.qty {
-  width: 20%;
-  margin: 0 auto;
-  margin-top: 10%;
-  display: block;
-}
-[name=quantity] {
-  background: transparent;
-  border: 0;
-  width: 2em;
-  font-size: 5em;
-  text-align: center;
-}
-.minus,
-.plus {
-  display: inline-block;
-  border: none;
-  font-size: 3em;
-  text-decoration: none;
-  background: #888;
-  width: 2em;
-  height: 1.5em;
-  text-align: center;
-  line-height: 1.3em;
-  top: -1rem;
-  position: relative;
-  color: #aaa;
-  box-shadow: 0 5px 0 #777;
-}
-.minus:hover,
-.plus:hover {
-  text-decoration: none;
-  color: #ffcd03;
-  background: #aaa;
-}
-.minus:active,
-.plus:active {
-  text-decoration: none;
-  top: -.5rem;
-  box-shadow: none;
-}
-.minus {
-  border-radius: 0.2em 0 0 0.2em;
-}
-.plus {
-  border-radius: 0 0.2em 0.2em 0;
+
+.title{
+  /***  CSS Text and Font  ***/
+  font-family:'Tahoma',sans-serif;
+  font-size:24px;
 }
 
+.number{
+  text-align: center;
+  width:65px;
+  height:60px;
+  font-family:'Tahoma',sans-serif;
+  font-size:38px;
+  border:0px;
+}
+
+.btn{
+  /***  CSS Box Model  ***/
+  width:80px;
+  height:60px;
+  position:relative;
+  top:-12px;
+
+
+}
