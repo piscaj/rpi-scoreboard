@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Glyphicon } from "react-bootstrap";
+require("../../../api/scoreboard/Global");
 
 class Scoreboard extends Component {
   constructor(props) {
