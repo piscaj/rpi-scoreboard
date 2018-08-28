@@ -17,6 +17,7 @@ class Scoreboard extends Component {
   }
 
   componentDidMount() {
+    if(portStatus = "closed"){fetch("/status/serialport/open");}
     fetch("/status/score")
       .then(response => {
         return response.json();
