@@ -32,7 +32,7 @@ module.exports = {
   },
   //send data to port
   portWrite: function(s) {
-    console.log("|------------Message sent to comport----------->>>>", s);
+    //console.log("|------------Message sent to comport----------->>>>", s);
     var buffer = new Buffer.alloc(10); // make a buffer for outbound data
     if (myPort.isOpen) {
       //Fill the buffer with byte array
