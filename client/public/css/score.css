@@ -25,6 +25,7 @@ body {
 
 .btn{
   /***  CSS Box Model  ***/
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   width:80px;
   height:60px;
   position:relative;
@@ -33,3 +34,12 @@ body {
 .btn:focus {
   outline: none;
 }
+
+.btn:hover {
+  color: #fff !important;
+  text-decoration: none;
+  }
+
+  .btn:active {
+    border-style: outset;
+  }
