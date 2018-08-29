@@ -17,6 +17,7 @@ class Scoreboard extends Component {
   }
 
   componentDidMount() {
+    this.setState({dataLoading: true});
     fetch("/status/serialport/open")
       .then(response => {
         return response.json();
@@ -34,7 +35,8 @@ class Scoreboard extends Component {
                 outs: data.outs,
                 balls: data.balls,
                 strikes: data.strikes,
-                inning: data.inning
+                inning: data.inning,
+                dataLoading: false
               })
             );
         }
@@ -155,6 +157,12 @@ class Scoreboard extends Component {
   };
 
   render() {
+    if (this.state.error) { 
+      return <Button>...Ooops! Something went wrong.</Button>;
+    }
+    if(this.state.dataLoading) { //if we need to wait for the requested data, let the user know
+      return <h3>Loading Scoreboard Controls...</h3>;
+    } 
     return (
       <div>
         <div className="title">Home</div>
