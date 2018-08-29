@@ -25,7 +25,7 @@ router.get("/resetScore", function(req, res, next) {
 });
 
 //add to home team score
-router.get("/home/add/", function(req, res, next) {
+router.get("/home/add", function(req, res, next) {
   request.addHome();
   res.status(200).json({
     message: "Success",
