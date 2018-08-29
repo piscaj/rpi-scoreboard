@@ -36,10 +36,10 @@ class Scoreboard extends Component {
                 balls: data.balls,
                 strikes: data.strikes,
                 inning: data.inning,
-                dataLoading: false
               })
             );
-        }
+            dataLoading: false
+          }
       });
   }
 
@@ -160,7 +160,7 @@ class Scoreboard extends Component {
     if (this.state.error) { 
       return <Button>...Ooops! Something went wrong.</Button>;
     }
-    if(this.state.dataLoading) { //if we need to wait for the requested data, let the user know
+    if(this.state.dataLoading) { 
       return <h3>Loading Scoreboard Controls...</h3>;
     } 
     return (
