@@ -38,7 +38,6 @@ class Scoreboard extends Component {
               })
             );
         }
-        else {}
       });
   }
 
