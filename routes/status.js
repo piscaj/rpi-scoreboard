@@ -37,7 +37,8 @@ router.get("/serialport", function(req, res, next) {
 router.get("/serialport/open", function(req, res, next) {
   portConnect.openPort();
   res.status(200).json({
-    message: "Success"
+    message: "Success",
+    connection: portStatus
   });
 });
 
@@ -45,7 +46,8 @@ router.get("/serialport/open", function(req, res, next) {
 router.get("/serialport/close", function(req, res, next) {
   portConnect.closePort();
   res.status(200).json({
-    message: "Success"
+    message: "Success",
+    connection: portStatus
   });
 });
 
