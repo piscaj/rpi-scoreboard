@@ -16,7 +16,7 @@ If you are new to REST, here’s a few resources from Brian Eng and Jeff Cohen t
 Understanding Resources<br>
 A Million APIs<br>
 RESTful Design<br>
-Each resource () has a similar structure. For example, the API will respond to the following commands for games:<br>
+Each resource () has a similar structure. For example, the API will respond to the following commands for /status/score to read the current score.<br>
 
 <b>HTTP Method:</b>  GET<br>
 <b>Recieve:</b>  JSON<br>
