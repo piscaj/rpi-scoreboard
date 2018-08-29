@@ -36,10 +36,10 @@ class Scoreboard extends Component {
                 balls: data.balls,
                 strikes: data.strikes,
                 inning: data.inning,
+                dataLoading: false
               })
             );
-            dataLoading: false
-          }
+        }
       });
   }
 
