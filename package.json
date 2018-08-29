@@ -13,5 +13,6 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "serialport": "^6.2.2"
-  }
+  },
+  "bundledDependencies": ["cookie-parser","debug","express","http-errors","jade","morgan","serialport"]
 }
