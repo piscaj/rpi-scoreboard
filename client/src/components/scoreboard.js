@@ -17,7 +17,7 @@ class Scoreboard extends Component {
   }
 
   componentDidMount() {
-    this.setState({dataLoading: true});
+    this.setState({ dataLoading: true });
     fetch("/status/serialport/open")
       .then(response => {
         return response.json();
@@ -157,12 +157,12 @@ class Scoreboard extends Component {
   };
 
   render() {
-    if (this.state.error) { 
+    if (this.state.error) {
       return <Button>...Ooops! Something went wrong.</Button>;
     }
-    if(this.state.dataLoading) { 
-      return <h3>Loading Scoreboard Controls...</h3>;
-    } 
+    if (this.state.dataLoading) {
+      return <h3>Updating Controls...</h3>;
+    }
     return (
       <div>
         <div className="title">Home</div>
