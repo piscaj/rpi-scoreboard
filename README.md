@@ -7,11 +7,11 @@ The application programming interface (API) allows you to programmatically query
 This API is currently developed for a standard baseball scoreboard, but will be expanded to support other standard sport configurations.  Since the API is based on REST principles, it conforms to some standard resource-oriented practices for naming conventions and data manipulation. You can use your browser to access URLs, and you can use any HTTP client in any programming language to interact with the API.
 
 <H2>Authentication</H2>
-Not supported yet.
+Basic, but Not supported yet.
 
 <H2>REST API</H2>
 
-If you are new to REST, here’s a few resourcesto get you started:<br>
+If you are new to REST, here’s a few resources to get you started:<br>
 
 Understanding Resources<br>
 A Million APIs<br>
