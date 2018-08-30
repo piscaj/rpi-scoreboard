@@ -10,6 +10,9 @@ module.exports = {
     inningDigitVal = 0;
     ballsDigitVal = 0;
     strikesDigitVal = 0;
+    inningDigitVal = 0;
+    outsDigitVal = 0;
+    
     //reset home score
     var command = buildCommand.displayCommand(homeDigitID[0],'0');
     com.portWrite(command);
