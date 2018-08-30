@@ -36,12 +36,10 @@ router.get("/serialport", function(req, res, next) {
 //serialport open
 router.get("/serialport/open", function(req, res, next) {
   portConnect.openPort();
-  setTimeout(
   res.status(200).json({
     message: "Success",
     connection: portStatus
-  })
-  , 1000);
+  });
 });
 
 //serialport close
