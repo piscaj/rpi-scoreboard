@@ -11,11 +11,13 @@ Not supported yet.
 
 <H2>REST API</H2>
 
-If you are new to REST, here’s a few resources from Brian Eng and Jeff Cohen to get you started:<br>
+If you are new to REST, here’s a few resourcesto get you started:<br>
 
 Understanding Resources<br>
 A Million APIs<br>
 RESTful Design<br>
+
+<h3>On to the API</h3>
 Each resource () has a similar structure. For example, the API will respond to the following commands for /status/score to read the current score.<br>
 
 <b>HTTP Method:</b>  GET<br>
