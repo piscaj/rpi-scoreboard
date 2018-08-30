@@ -18,12 +18,36 @@ class Scoreboard extends Component {
 
   componentDidMount() {
     this.setState({ dataLoading: true });
-    fetch("/status/serialport/open")
+    fetch("/status/serialport")
       .then(response => {
         return response.json();
       })
       .then(data => {
-        if (data.connection === "open") {
+        if (data.connection === "closed") {
+          fetch("/status/serialport/open")
+            .then(response => {
+              return response.json();
+            })
+            .then(data => {
+              if (data.connection === "open") {
+                fetch("/status/score")
+                  .then(response => {
+                    return response.json();
+                  })
+                  .then(data =>
+                    this.setState({
+                      homeScore: data.homeScore,
+                      awayScore: data.awayScore,
+                      outs: data.outs,
+                      balls: data.balls,
+                      strikes: data.strikes,
+                      inning: data.inning,
+                      dataLoading: false
+                    })
+                  );
+              }
+            });
+        } else {
           fetch("/status/score")
             .then(response => {
               return response.json();
