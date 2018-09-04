@@ -29,7 +29,7 @@ class Scoreboard extends Component {
               return response.json();
             })
             .then(data => {
-              if (data.connection === "open") {
+              if (data.connection === "closed") {
                 fetch("/status/score")
                   .then(response => {
                     return response.json();
