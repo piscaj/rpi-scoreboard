@@ -6,18 +6,23 @@
     "bootstrap": "^4.1.3",
     "onsenui": "^2.10.4",
     "react": "^16.4.2",
-    "react-bootstrap": "^0.32.1",
+    "react-bootstrap": "^0.32.3",
     "react-dom": "^16.4.2",
     "react-onsenui": "^1.11.1",
     "react-scripts": "1.1.4"
   },
-  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "bundledDependencies": ["react","react-bootstrap","react-dom","react-scripts","morgan"],
+  "bundledDependencies": [
+    "react",
+    "react-bootstrap",
+    "react-dom",
+    "react-scripts",
+    "morgan"
+  ],
   "proxy": "http://localhost:3001"
 }
