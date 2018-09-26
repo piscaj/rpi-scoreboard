@@ -12,7 +12,9 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
-    "serialport": "^6.2.2"
+    "serialport": "^6.2.2",
+    "socket-io": "^1.0.0",
+    "socket.io": "^2.1.1"
   },
   "bundledDependencies": [
     "cookie-parser",
