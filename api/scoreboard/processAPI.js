@@ -3,8 +3,9 @@ const com = require("../serialport/port");
 require("../scoreboard/Global");
 const splitNumber = require("./splitNumber");
 
+
 module.exports = {
-  resetScore: function() {
+  resetBaseballScore: function() {
     homeDigitVal = 0;
     awayDigitVal = 0;
     inningDigitVal = 0;
@@ -12,32 +13,35 @@ module.exports = {
     strikesDigitVal = 0;
     inningDigitVal = 0;
     outsDigitVal = 0;
-    
+
     //reset home score
-    var command = buildCommand.displayCommand(homeDigitID[0],'0');
+    var command = buildCommand.displayCommand(homeDigitID[0], "0");
     com.portWrite(command);
-    var command = buildCommand.displayCommand(homeDigitID[1],'0');
+    var command = buildCommand.displayCommand(homeDigitID[1], "0");
     com.portWrite(command);
     //reset away score
-    var command = buildCommand.displayCommand(awayDigitID[0],'0');
+    var command = buildCommand.displayCommand(awayDigitID[0], "0");
     com.portWrite(command);
-    var command = buildCommand.displayCommand(awayDigitID[1],'0');
+    var command = buildCommand.displayCommand(awayDigitID[1], "0");
     com.portWrite(command);
     //reset inning
-    var command = buildCommand.displayCommand(inningDigitID,'0');
+    var command = buildCommand.displayCommand(inningDigitID, "0");
     com.portWrite(command);
     //reset balls
     for (i = 0; i < ballsDigitID.length; i++) {
-    var command = buildCommand.displayCommand(ballsDigitID[i],'0');
-    com.portWrite(command);}
+      var command = buildCommand.displayCommand(ballsDigitID[i], "0");
+      com.portWrite(command);
+    }
     //reset strikes
     for (i = 0; i < strikesDigitID.length; i++) {
-    var command = buildCommand.displayCommand(strikesDigitID[i],'0');
-    com.portWrite(command);}
+      var command = buildCommand.displayCommand(strikesDigitID[i], "0");
+      com.portWrite(command);
+    }
     //reset outs
     for (i = 0; i < outsDigitID.length; i++) {
-      var command = buildCommand.displayCommand(outsDigitID[i],'0');
-      com.portWrite(command);}   
+      var command = buildCommand.displayCommand(outsDigitID[i], "0");
+      com.portWrite(command);
+    }
   },
 
   addHome: function() {
@@ -47,9 +51,12 @@ module.exports = {
     if (homeDigitVal < max) {
       homeDigitVal++;
       if (homeDigitVal < 10) {
-        var command = buildCommand.displayCommand(homeDigitID[0],'0');
+        var command = buildCommand.displayCommand(homeDigitID[0], "0");
         com.portWrite(command);
-        command = buildCommand.displayCommand(homeDigitID[1],homeDigitVal.toString());
+        command = buildCommand.displayCommand(
+          homeDigitID[1],
+          homeDigitVal.toString()
+        );
         com.portWrite(command);
       } else if (homeDigitVal >= 10) {
         var val = homeDigitVal.toString().split("", 2);
@@ -68,9 +75,12 @@ module.exports = {
     if (homeDigitVal > min) {
       homeDigitVal--;
       if (homeDigitVal < 10) {
-        var command = buildCommand.displayCommand(homeDigitID[0],'0');
+        var command = buildCommand.displayCommand(homeDigitID[0], "0");
         com.portWrite(command);
-        command = buildCommand.displayCommand(homeDigitID[1],homeDigitVal.toString());
+        command = buildCommand.displayCommand(
+          homeDigitID[1],
+          homeDigitVal.toString()
+        );
         com.portWrite(command);
       } else if (homeDigitVal >= 10) {
         var val = homeDigitVal.toString().split("", 2);
@@ -89,7 +99,7 @@ module.exports = {
     if (awayDigitVal < max) {
       awayDigitVal++;
       if (awayDigitVal < 10) {
-        var command = buildCommand.displayCommand(awayDigitID[0],'0');
+        var command = buildCommand.displayCommand(awayDigitID[0], "0");
         com.portWrite(command);
         command = buildCommand.displayCommand(
           awayDigitID[1],
@@ -113,7 +123,7 @@ module.exports = {
     if (awayDigitVal > min) {
       awayDigitVal--;
       if (awayDigitVal < 10) {
-        var command = buildCommand.displayCommand(awayDigitID[0], '0');
+        var command = buildCommand.displayCommand(awayDigitID[0], "0");
         com.portWrite(command);
         command = buildCommand.displayCommand(
           awayDigitID[1],
@@ -163,8 +173,8 @@ module.exports = {
         ballsDigitVal.toString()
       );
       com.portWrite(command);
-    }
-    else{ballsDigitVal = 0
+    } else {
+      ballsDigitVal = 0;
       command = buildCommand.displayCommand(
         ballsDigitID,
         ballsDigitVal.toString()
@@ -194,10 +204,10 @@ module.exports = {
         strikesDigitVal.toString()
       );
       com.portWrite(command);
-    }
-    else{strikesDigitVal = 0
+    } else {
+      strikesDigitVal = 0;
       command = buildCommand.displayCommand(
-       strikesDigitID,
+        strikesDigitID,
         strikesDigitVal.toString()
       );
       com.portWrite(command);
@@ -217,18 +227,17 @@ module.exports = {
   },
 
   addOuts: function() {
-     const max = 2;
+    const max = 2;
 
-     if (outsDigitVal < max) {
+    if (outsDigitVal < max) {
       outsDigitVal++;
       command = buildCommand.displayCommand(
         outsDigitID,
         outsDigitVal.toString()
       );
       com.portWrite(command);
-    }
-    
-    else{outsDigitVal = 0
+    } else {
+      outsDigitVal = 0;
       command = buildCommand.displayCommand(
         outsDigitID,
         outsDigitVal.toString()
@@ -248,7 +257,7 @@ module.exports = {
       com.portWrite(command);
     }
   },
-/*  
+  /*  
   addBalls: function() {
     const max = 4;
     const turnOnDot = '8'
@@ -323,27 +332,52 @@ module.exports = {
 */
 
   setHome: function(n) {
-      var Val = splitNumber.splitNum(n);
-      homeDigitVal = n.toString();
-      for (i = 0; i < homeDigitID.length; i++) {
-        var command = buildCommand.displayCommand(homeDigitID[i],Val[i]);
-        com.portWrite(command)
-        ;}
-    },
+    var Val = splitNumber.splitNum(n);
+    homeDigitVal = n.toString();
+    for (i = 0; i < homeDigitID.length; i++) {
+      var command = buildCommand.displayCommand(homeDigitID[i], Val[i]);
+      com.portWrite(command);
+    }
+  },
 
-setAway: function(n) {
-  var Val = splitNumber.splitNum(n);
-  awayDigitVal = n.toString();
-  for (i = 0; i < awayDigitID.length; i++) {
-    var command = buildCommand.displayCommand(awayDigitID[i],Val[i]);
-    com.portWrite(command);}
+  setAway: function(n) {
+    var Val = splitNumber.splitNum(n);
+    awayDigitVal = n.toString();
+    for (i = 0; i < awayDigitID.length; i++) {
+      var command = buildCommand.displayCommand(awayDigitID[i], Val[i]);
+      com.portWrite(command);
+    }
   },
 
   setInning: function(n) {
     var Val = splitNumber.splitNum(n);
     inningDigitVal = n.toString();
-    var command = buildCommand.displayCommand(inningDigitID,Val);
+    var command = buildCommand.displayCommand(inningDigitID, Val);
     com.portWrite(command);
-    },
+  },
+
+  addQtr: function() {
+    const max = 4;
+    if (qtrDigitVal < max) {
+      qtrDigitVal++;
+      command = buildCommand.displayCommand(qtrDigitID, qtrDigitVal.toString());
+      com.portWrite(command);
+    } else {
+      qtrsDigitVal = 0;
+      command = buildCommand.displayCommand(qtrDigitID, qtrDigitVal.toString());
+      com.portWrite(command);
+    }
+  },
+
+  subtractQtr: function() {
+    const min = 0;
+    if (qtrDigitVal > min) {
+      qtrDigitVal--;
+      command = buildCommand.displayCommand(qtrDigitID, qtrDigitVal.toString());
+      com.portWrite(command);
+    }
+  }
+
+
 
 };

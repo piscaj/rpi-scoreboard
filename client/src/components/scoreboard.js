@@ -164,7 +164,7 @@ class Scoreboard extends Component {
   };
 
   resetScore = () => {
-    fetch("/setDigit/resetScore")
+    fetch("/setDigit/resetBaseballScore")
       .then(response => {
         return response.json();
       })

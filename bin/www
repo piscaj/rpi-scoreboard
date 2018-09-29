@@ -1,18 +1,7 @@
 #!/usr/bin/env node
 
-//digit ID
-global.homeDigitID;
-global.awayDigitID;
-global.inningDigitID;
-global.ballsDigitID;
-global.strikesDigitID;
+require("../api/scoreboard/Global");
 
-//digit values
-global.homeDigitVal;
-global.awayDigitVal;
-global.inningDigitVal;
-global.ballsDigitVal;
-global.strikesDigitVal;
 
 /**
  * Module dependencies.

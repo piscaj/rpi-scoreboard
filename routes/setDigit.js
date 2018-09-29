@@ -11,7 +11,7 @@ router.get("/", function(req, res, next) {
 });
 
 //reset scoreboard 0000
-router.get("/resetScore", function(req, res, next) {
+router.get("/resetBaseballScore", function(req, res, next) {
   request.resetScore();
   res.status(200).json({
     message: "Success",
@@ -193,6 +193,26 @@ router.get("/inning/:setInningVal", (req, res, next) => {
       value: req.params.setInningVal
     });
   }
+});
+
+//add to qtr
+router.get("/qtr/add", function(req, res, next) {
+  request.addQtr();
+  res.status(200).json({
+    message: "Success",
+    digitID: qtrDigitID,
+    qtr: qtrDigitVal
+  });
+});
+
+//subtract from qtr
+router.get("/qtr/subtract", function(req, res, next) {
+  request.subtractQtr();
+  res.status(200).json({
+    message: "Success",
+    digitID: qtrDigitID,
+    qtr: qtrDigitVal
+  });
 });
 
 module.exports = router;
