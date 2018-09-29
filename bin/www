@@ -2,7 +2,6 @@
 
 require("../api/scoreboard/Global");
 
-
 /**
  * Module dependencies.
  */

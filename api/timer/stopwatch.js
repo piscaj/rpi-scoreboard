@@ -1,23 +1,27 @@
-var Stopwatch = require('timer-stopwatch');
+var Stopwatch = require("timer-stopwatch");
 
 var options = {
-  refreshRateMS: 1000,		// How often the clock should be updated
-  almostDoneMS: 10000, 	// When counting down - this event will fire with this many milliseconds remaining on the clock
-}
- 
-var timer = new Stopwatch(60000,options);
+  refreshRateMS: 1000, //how often the clock should be updated
+  almostDoneMS: 10000 //when counting down - this event will fire with this many milliseconds remaining on the clock
+};
+
+var timer = new Stopwatch(900000, options);
 
 timer.start();
 
 timer.onTime(function(time) {
-    console.log(Math.round(time.ms / 1000.0)); // number of milliseconds past (or remaining);
+  console.log(
+    Math.floor(time.ms / 1000 / 60) << 0,
+    Math.floor(time.ms / 1000) % 60
+  ); //number of milliseconds past (or remaining);
 });
 
 //Exports for API to use
 //open port
 module.exports = {
-    setTimer: function(newTime) {
+  setTimer: function(newTime) {
+    timer.reset(newTime)
 
-    },
 
-  };
+  }
+};
