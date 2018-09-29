@@ -20,8 +20,10 @@ timer.onTime(function(time) {
 //Exports for API to use
 //set new time
 module.exports = {
-  setTimer: function(newTime) {
-    timer.reset(minuteToMillisec(newTime));
+  setTimer: function(newTimeMinutes,newTimeSeconds) {
+    var newTime =
+      minuteToMillisec(newTimeMinutes) + minuteToSeconds(newTimeSeconds);
+    timer.reset(newTime);
   },
 
   //set timer to 0. If start timer in initiated from 0 it will count up.
