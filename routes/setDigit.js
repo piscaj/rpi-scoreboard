@@ -215,4 +215,14 @@ router.get("/qtr/subtract", function(req, res, next) {
   });
 });
 
+//set timer with users number
+router.get("/timer/:timeVal", (req, res, next) => {
+    request.setNewTimer(req.params.timeVal);
+    res.status(200).json({
+      message: "Sucsess",
+      digitID: timerDigitID,
+      value: req.params.timeVal
+    });
+  });
+
 module.exports = router;

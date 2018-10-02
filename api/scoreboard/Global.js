@@ -8,6 +8,7 @@ global.ballsDigitID = "6";
 global.strikesDigitID = "7";
 global.outsDigitID = "8";
 global.qtrDigitID = "6";
+global.timerDigitID = ["1", "2","3", "4"];
 
 //digit values
 global.homeDigitVal = 0;

@@ -1,5 +1,9 @@
 var Stopwatch = require("timer-stopwatch");
-const minuteToMillisec = require("../tools/convertMillisec");
+const convertTime = require("../tools/convertMillisec");
+const buildCommand = require("../scoreboard/controlDigit");
+const com = require("../serialport/port");
+require("../scoreboard/Global");
+const splitNumber = require("../scoreboard/splitNumber");
 
 var options = {
   refreshRateMS: 1000, //how often the clock should be updated
@@ -8,7 +12,7 @@ var options = {
 
 var timer = new Stopwatch(900000, options); //set stopwatch to 15 minute countdown as default.
 
-timer.start();
+//timer.start();
 
 timer.onTime(function(time) {
   console.log(
@@ -21,12 +25,14 @@ timer.onTime(function(time) {
 //set new time
 module.exports = {
   setTimer: function(newTimeMinutes,newTimeSeconds) {
-    var newTime =
-      minuteToMillisec(newTimeMinutes) + minuteToSeconds(newTimeSeconds);
+    var newTime = convertTime.minuteToMillisec(newTimeMinutes) + convertTime.secondsToMillisec(newTimeSeconds);
     timer.reset(newTime);
   },
-
-  //set timer to 0. If start timer in initiated from 0 it will count up.
+//set new Qtr
+  resetQtr: function() {
+    timer.reset(900000);
+  },
+  //set timer to last set time.
   resetTimer: function() {
     timer.reset();
   },
