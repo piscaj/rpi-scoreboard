@@ -379,7 +379,7 @@ module.exports = {
   },
 
   setNewTimer: function(n) {
-    if (length(n) === 5) {
+    if (n.length === 5) {
       if (n.includes(":")) {
         var min = n.substring(2, 0);
         var sec = n.substring(5, 3);

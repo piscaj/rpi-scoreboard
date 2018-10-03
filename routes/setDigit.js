@@ -217,12 +217,26 @@ router.get("/qtr/subtract", function(req, res, next) {
 
 //set timer with users number
 router.get("/timer/:timeVal", (req, res, next) => {
-    request.setNewTimer(req.params.timeVal);
+  if (req.params.timeVal.length === 5) {
+    if (req.params.timeVal.includes(":", 2)) {
+      request.setNewTimer(req.params.timeVal);
+      res.status(200).json({
+        message: "Sucsess",
+        digitID: timerDigitID,
+        value: req.params.timeVal
+      });
+    } else {
+      res.status(200).json({
+        message: "Something went wrong! Format should be: XX:XX .",
+        value: req.params.timeVal
+      });
+    }
+  } else {
     res.status(200).json({
-      message: "Sucsess",
-      digitID: timerDigitID,
+      message: "Something went wrong! Format should be: XX:XX .",
       value: req.params.timeVal
     });
-  });
+  }
+});
 
 module.exports = router;
