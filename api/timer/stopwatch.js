@@ -12,12 +12,14 @@ var options = {
 
 var timer = new Stopwatch(900000, options); //set stopwatch to 15 minute countdown as default.
 
+/*
 timer.onTime(function(time) {
   console.log(
     Math.floor(time.ms / 1000 / 60) << 0,
     Math.floor(time.ms / 1000) % 60
   ); //number of milliseconds past (or remaining);
 });
+*/
 
 //Exports for API to use
 //set new time
@@ -57,25 +59,26 @@ module.exports = {
 timer.onTime(function(time) {
   var minutes = Math.floor(time.ms / 1000 / 60) << 0;
   var seconds = Math.floor(time.ms / 1000) % 60;
-  timerSecondsVal = seconds.toString();
-  timerMinutesVal = minutes.toString();
+  timerSecondsVal = seconds;
+  timerMinutesVal = minutes;
 
   var MinutesVal = splitNumber.splitNum(minutes);
   var SecondsVal = splitNumber.splitNum(seconds);
-  displayTime = MinutesVal.concat(SecondsVal);
 
-  for (i = array.length; i--; ) {
+  displayTime = MinutesVal.concat(SecondsVal);
+  
+  for (i = timerDigitID.length - 1; i > -1; i--) {
     var command = buildCommand.displayCommand(timerDigitID[i], displayTime[i]);
     com.portWrite(command);
   }
 });
-
+//[ 1, 68, 48, 52, 51, 68, 66, 3 ]
 // Fires when the timer is done
 timer.onDone(function() {
   console.log("Timer is complete");
 });
 
 // Fires when the timer is almost complete - default is 10 seconds remaining. Change with 'almostDoneMS' option
-timer.onAlmostdone(function() {
+timer.onAlmostDone(function() {
   console.log("Timer is almost complete");
 });
