@@ -18,6 +18,8 @@ global.ballsDigitVal = 0;
 global.strikesDigitVal = 0;
 global.outsDigitVal = 0;
 global.qtrDigitVal = 0;
+global.timerMinutesVal = 0;
+global.timerSecondsVal = 0;
 
 //serialport
 global.portStatus = "closed";

@@ -12,8 +12,6 @@ var options = {
 
 var timer = new Stopwatch(900000, options); //set stopwatch to 15 minute countdown as default.
 
-//timer.start();
-
 timer.onTime(function(time) {
   console.log(
     Math.floor(time.ms / 1000 / 60) << 0,
@@ -24,11 +22,13 @@ timer.onTime(function(time) {
 //Exports for API to use
 //set new time
 module.exports = {
-  setTimer: function(newTimeMinutes,newTimeSeconds) {
-    var newTime = convertTime.minuteToMillisec(newTimeMinutes) + convertTime.secondsToMillisec(newTimeSeconds);
+  setTimer: function(newTimeMinutes, newTimeSeconds) {
+    var newTime =
+      convertTime.minuteToMillisec(newTimeMinutes) +
+      convertTime.secondsToMillisec(newTimeSeconds);
     timer.reset(newTime);
   },
-//set new Qtr
+  //set new Qtr
   resetQtr: function() {
     timer.reset(900000);
   },
@@ -52,3 +52,30 @@ module.exports = {
     timer.startstop();
   }
 };
+
+// Fires every 1sec per option settings.
+timer.onTime(function(time) {
+  var minutes = Math.floor(time.ms / 1000 / 60) << 0;
+  var seconds = Math.floor(time.ms / 1000) % 60;
+  timerSecondsVal = seconds.toString();
+  timerMinutesVal = minutes.toString();
+
+  var MinutesVal = splitNumber.splitNum(minutes);
+  var SecondsVal = splitNumber.splitNum(seconds);
+  displayTime = MinutesVal.concat(SecondsVal);
+
+  for (i = array.length; i--; ) {
+    var command = buildCommand.displayCommand(timerDigitID[i], displayTime[i]);
+    com.portWrite(command);
+  }
+});
+
+// Fires when the timer is done
+timer.onDone(function() {
+  console.log("Timer is complete");
+});
+
+// Fires when the timer is almost complete - default is 10 seconds remaining. Change with 'almostDoneMS' option
+timer.onAlmostdone(function() {
+  console.log("Timer is almost complete");
+});

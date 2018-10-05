@@ -2,7 +2,7 @@ const buildCommand = require("./controlDigit");
 const com = require("../serialport/port");
 require("../scoreboard/Global");
 const splitNumber = require("./splitNumber");
-const timer = require("../timer/stopwatch");
+const time = require("../timer/stopwatch");
 
 module.exports = {
   resetBaseballScore: function() {
@@ -383,7 +383,7 @@ module.exports = {
       if (n.includes(":")) {
         var min = n.substring(2, 0);
         var sec = n.substring(5, 3);
-        timer.setTimer(min, sec);
+        time.setTimer(min, sec);
       }
     }
   }
