@@ -66,11 +66,15 @@ timer.onTime(function(time) {
   var SecondsVal = splitNumber.splitNum(seconds);
 
   displayTime = MinutesVal.concat(SecondsVal);
-  
-  for (i = timerDigitID.length - 1; i > -1; i--) {
-    var command = buildCommand.displayCommand(timerDigitID[i], displayTime[i]);
-    com.portWrite(command);
-  }
+
+  var command = buildCommand.displayCommand(timerDigitID[3], displayTime[3]);
+  com.portWrite(command);
+  var command = buildCommand.displayCommand(timerDigitID[2], displayTime[2]);
+  com.portWrite(command);
+  var command = buildCommand.displayCommand(timerDigitID[1], displayTime[1]);
+  com.portWrite(command);
+  var command = buildCommand.displayCommand(timerDigitID[0], displayTime[0]);
+  com.portWrite(command);
 });
 //[ 1, 68, 48, 52, 51, 68, 66, 3 ]
 // Fires when the timer is done

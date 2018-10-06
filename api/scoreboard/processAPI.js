@@ -257,96 +257,23 @@ module.exports = {
       com.portWrite(command);
     }
   },
-  /*  
-  addBalls: function() {
-    const max = 4;
-    const turnOnDot = '8'
-    if (ballsDigitVal < max) {
-      ballsDigitVal++;
-      command = buildCommand.displayCommand(ballsDigitID[ballsDigitVal-1],turnOnDot);
-      com.portWrite(command);
-    }
-  },
-  
-  subtractBalls: function() {
-    const min = 0;
-    const turnOffDot = ' '
-    if (ballsDigitVal > min) {
-      ballsDigitVal--;
-      command = buildCommand.displayCommand(ballsDigitID[ballsDigitVal],turnOffDot);
-      com.portWrite(command);
-    }
-    else if (ballsDigitVal === min) {
-        command = buildCommand.displayCommand(ballsDigitID[ballsDigitVal],turnOffDot);
-        com.portWrite(command);
-    }
-  },
-
-  addStrikes: function() {
-    const max = 3;
-    const turnOnDot = '8'
-    if (strikesDigitVal < max) {
-      strikesDigitVal++;
-      command = buildCommand.displayCommand(strikesDigitID[strikesDigitVal-1],turnOnDot);
-      com.portWrite(command);
-    }
-  },
-  
-  subtractStrikes: function() {
-    const min = 0;
-    const turnOffDot = ' '
-    if (strikesDigitVal > min) {
-      strikesDigitVal--;
-      command = buildCommand.displayCommand(strikesDigitID[strikesDigitVal],turnOffDot);
-      com.portWrite(command);
-    }
-    else if (strikesDigitVal === min) {
-        command = buildCommand.displayCommand(strikesDigitID[strikesDigitVal],turnOffDot);
-        com.portWrite(command);
-    }
-  },
-
-  addOuts: function() {
-    const max = 3;
-    const turnOnDot = '8'
-    if (outsDigitVal < max) {
-      outsDigitVal++;
-      command = buildCommand.displayCommand(outsDigitID[outsDigitVal-1],turnOnDot);
-      com.portWrite(command);
-    }
-  },
-  
-  subtractOuts: function() {
-    const min = 0;
-    const turnOffDot = ' '
-    if (outsDigitVal > min) {
-      outsDigitVal--;
-      command = buildCommand.displayCommand(outsDigitID[outsDigitVal],turnOffDot);
-      com.portWrite(command);
-    }
-    else if (outsDigitVal === min) {
-        command = buildCommand.displayCommand(outsDigitID[outsDigitVal],turnOffDot);
-        com.portWrite(command);
-    }
-  },
-*/
 
   setHome: function(n) {
     var Val = splitNumber.splitNum(n);
     homeDigitVal = n.toString();
-    for (i = 0; i < homeDigitID.length; i++) {
-      var command = buildCommand.displayCommand(homeDigitID[i], Val[i]);
-      com.portWrite(command);
-    }
+    var command = buildCommand.displayCommand(homeDigitID[0], Val[0]);
+    com.portWrite(command);
+    var command = buildCommand.displayCommand(homeDigitID[1], Val[1]);
+    com.portWrite(command);
   },
 
   setAway: function(n) {
     var Val = splitNumber.splitNum(n);
     awayDigitVal = n.toString();
-    for (i = 0; i < awayDigitID.length; i++) {
-      var command = buildCommand.displayCommand(awayDigitID[i], Val[i]);
-      com.portWrite(command);
-    }
+    var command = buildCommand.displayCommand(awayDigitID[0], Val[0]);
+    com.portWrite(command);
+    var command = buildCommand.displayCommand(awayDigitID[1], Val[1]);
+    com.portWrite(command);
   },
 
   setInning: function(n) {
