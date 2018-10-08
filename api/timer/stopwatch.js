@@ -76,10 +76,26 @@ timer.onTime(function(time) {
   var command = buildCommand.displayCommand(timerDigitID[0], displayTime[0]);
   com.portWrite(command);
 });
-//[ 1, 68, 48, 52, 51, 68, 66, 3 ]
+
 // Fires when the timer is done
 timer.onDone(function() {
   console.log("Timer is complete");
+  timerSecondsVal = " ";
+  timerMinutesVal = " ";
+
+  var MinutesVal = splitNumber.splitNum(minutes);
+  var SecondsVal = splitNumber.splitNum(seconds);
+
+  displayTime = MinutesVal.concat(SecondsVal);
+
+  var command = buildCommand.displayCommand(timerDigitID[3], displayTime[3]);
+  com.portWrite(command);
+  var command = buildCommand.displayCommand(timerDigitID[2], displayTime[2]);
+  com.portWrite(command);
+  var command = buildCommand.displayCommand(timerDigitID[1], displayTime[1]);
+  com.portWrite(command);
+  var command = buildCommand.displayCommand(timerDigitID[0], displayTime[0]);
+  com.portWrite(command);
 });
 
 // Fires when the timer is almost complete - default is 10 seconds remaining. Change with 'almostDoneMS' option
