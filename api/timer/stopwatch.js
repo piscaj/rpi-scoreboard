@@ -80,21 +80,14 @@ timer.onTime(function(time) {
 // Fires when the timer is done
 timer.onDone(function() {
   console.log("Timer is complete");
-  timerSecondsVal = " ";
-  timerMinutesVal = " ";
 
-  var MinutesVal = splitNumber.splitNum(minutes);
-  var SecondsVal = splitNumber.splitNum(seconds);
-
-  displayTime = MinutesVal.concat(SecondsVal);
-
-  var command = buildCommand.displayCommand(timerDigitID[3], displayTime[3]);
+  var command = buildCommand.displayCommand(timerDigitID[3], '-');
   com.portWrite(command);
-  var command = buildCommand.displayCommand(timerDigitID[2], displayTime[2]);
+  var command = buildCommand.displayCommand(timerDigitID[2], '-');
   com.portWrite(command);
-  var command = buildCommand.displayCommand(timerDigitID[1], displayTime[1]);
+  var command = buildCommand.displayCommand(timerDigitID[1], '-');
   com.portWrite(command);
-  var command = buildCommand.displayCommand(timerDigitID[0], displayTime[0]);
+  var command = buildCommand.displayCommand(timerDigitID[0], '-');
   com.portWrite(command);
 });
 
