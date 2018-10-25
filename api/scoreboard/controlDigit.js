@@ -11,9 +11,10 @@ module.exports = {
     const ETX = 0x03;
 
     //split scoreboardv id into two seperate bytes
-    var AD = id.calculateID(scoreboardID);
+    //var AD = id.calculateID(scoreboardID);
+    var AD = scoreboardID;
     console.log(AD);
-    var ADbyte = convertByte.hexToBytes(AD);
+    var ADbyte = splitNumber.splitNumHex(AD);
     console.log(ADbyte);
 
 
