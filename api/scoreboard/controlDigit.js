@@ -24,15 +24,16 @@ module.exports = {
 
     //calculate the checksum
     var TEMP = parseInt(s.charCodeAt(0), 10);
-    var CHK = chk.calculateChk(ADbyte[0] + ADbyte[1] + DIGIT + IDbyte[0] + IDbyte[1] + TEMP);
+    //var CHK = chk.calculateChk(ADbyte[0] + ADbyte[1] + DIGIT + IDbyte[0] + IDbyte[1] + TEMP);
+    var CHK = chk.calculateChk(DIGIT + IDbyte[0] + IDbyte[1] + TEMP);
     //set digit value to hex
     var VAL = s.charCodeAt(0).toString(16);
 
     //concatinate the string and pad 0 when needed
     var TEMP =
       SOH.toString(16).padStart(2, "0") +
-      ADbyte[0].toString(16).padStart(2, "0") +
-      ADbyte[1].toString(16).padStart(2, "0") +
+      //ADbyte[0].toString(16).padStart(2, "0") +
+      //ADbyte[1].toString(16).padStart(2, "0") +
       DIGIT.toString(16).padStart(2, "0") +
       ID.toString(16).padStart(2, "0") +
       VAL.padStart(2, "0") +
