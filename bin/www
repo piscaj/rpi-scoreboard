@@ -14,17 +14,18 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
+
+ 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-
 var server = http.createServer(app);
 
 // Pass a http.Server instance to the listen method
-var io = require('socket.io').listen(server);
+ var io = require('socket.io').listen(server);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -94,7 +95,7 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-// Handle connection
+// Handle socket io connection
 io.on('connection', function (socket) {
   console.log("Connected succesfully to the socket ...");
 

@@ -95,3 +95,6 @@ timer.onDone(function() {
 timer.onAlmostDone(function() {
   console.log("Timer is almost complete");
 });
+
+
+
