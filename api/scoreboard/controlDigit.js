@@ -1,12 +1,16 @@
 const chk = require("./calculateChecksum");
 const id = require("./calculateID");
 const convertByte = require("../tools/convertByte");
+require("../scoreboard/Global");
 
 module.exports = {
   displayCommand: function(n, s) {
     const SOH = 0x01;
     const DIGIT = 0x44;
     const ETX = 0x03;
+
+    //split scoreboardvid into two seperate bytes
+    var AD = id.calculateID(scoreboardID);
 
     //split digit id into two seperate bytes
     var ID = id.calculateID(n);
@@ -21,6 +25,7 @@ module.exports = {
     //concatinate the string and pad 0 when needed
     var TEMP =
       SOH.toString(16).padStart(2, "0") +
+      AD.toString(16).padStart(2, "0") +
       DIGIT.toString(16).padStart(2, "0") +
       ID.toString(16).padStart(2, "0") +
       VAL.padStart(2, "0") +
