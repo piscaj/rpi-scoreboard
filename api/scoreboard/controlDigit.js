@@ -10,7 +10,7 @@ module.exports = {
     const ETX = 0x03;
 
     //split scoreboardvid into two seperate bytes
-    var AD = id.calculateID(scoreboardID);
+    var AD = scoreboardID;
 
     //split digit id into two seperate bytes
     var ID = id.calculateID(n);

@@ -1,7 +1,7 @@
 /*Global Variables for standard baseball scoreboard*/
 
 //scoreboard ID
-global.scoreboardID = "1";
+global.scoreboardID = 0x01;
 
 //digit ID
 global.homeDigitID = ["1", "2"];
