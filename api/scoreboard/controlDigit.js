@@ -14,7 +14,8 @@ module.exports = {
     //var AD = id.calculateID(scoreboardID);
     var AD = scoreboardID;
     console.log(AD);
-    var ADbyte = splitNumber.splitNumHex(AD);
+    var ADbyte = convertByte.hexToBytes(AD);
+    AD = splitNumber.splitNumHex(AD);
     console.log(ADbyte);
 
 
@@ -32,8 +33,8 @@ module.exports = {
     //concatinate the string and pad 0 when needed
     var TEMP =
       SOH.toString(16).padStart(2, "0") +
-      //ADbyte[0].toString(16).padStart(2, "0") +
-      //ADbyte[1].toString(16).padStart(2, "0") +
+      AD[0].toString(16).padStart(2, "0") +
+      AD[1].toString(16).padStart(2, "0") +
       DIGIT.toString(16).padStart(2, "0") +
       ID.toString(16).padStart(2, "0") +
       VAL.padStart(2, "0") +
