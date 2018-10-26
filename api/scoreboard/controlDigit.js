@@ -10,12 +10,12 @@ module.exports = {
     const DIGIT = 0x44;
     const ETX = 0x03;
 
-    //split scoreboardv id into two seperate bytes
-    //var AD = id.calculateID(scoreboardID);
+    //split scoreboard id into two seperate bytes
     var AD = id.calculateID(scoreboardID);
+
     ADbyte = convertByte.hexToBytes(AD)
-    //ADH = splitNumber.splitNumHex(AD);
-    console.log(ADbyte);
+
+    console.log(AD);
     //console.log(ADH[0].toString(8), ADH[1].toString(8))
     //var ADbyte = convertByte.hexToBytes(AD);
 
@@ -23,7 +23,7 @@ module.exports = {
     //split digit id into two seperate bytes
     var ID = id.calculateID(n);
     var IDbyte = convertByte.hexToBytes(ID);
-
+    console.log(ID);
     //calculate the checksum
     var TEMP = parseInt(s.charCodeAt(0), 10);
     var CHK = chk.calculateChk(ADbyte[0] + ADbyte[1] + DIGIT + IDbyte[0] + IDbyte[1] + TEMP);
