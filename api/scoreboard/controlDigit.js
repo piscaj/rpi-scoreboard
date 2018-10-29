@@ -25,7 +25,7 @@ module.exports = {
     //calculate the checksum
     var TEMP = parseInt(s.charCodeAt(0), 10);
 
-    var CHK = chk.calculateChk(1 + DIGIT + IDbyte[0] + IDbyte[1] + TEMP);
+    var CHK = chk.calculateChk(0 + 1 + DIGIT + IDbyte[0] + IDbyte[1] + TEMP);
     //var CHK = chk.calculateChk(DIGIT + IDbyte[0] + IDbyte[1] + TEMP);
     //set digit value to hex
     var VAL = s.charCodeAt(0).toString(16);
