@@ -11,7 +11,7 @@ global.ballsDigitID = "6";
 global.strikesDigitID = "7";
 global.outsDigitID = "8";
 global.qtrDigitID = "9";
-global.timerDigitID = ["3", "4","5", "6"];
+global.timerDigitID = ["3", "4", "5", "6"];
 
 //digit values
 global.homeDigitVal = 0;
