@@ -3,17 +3,21 @@
 //scoreboard ID
 global.scoreboardID = "1";
 
-//digit ID
-global.homeDigitID = ["1", "2"];
-global.awayDigitID = ["4", "5"];
+//digit IDs for baseball
+//global.homeDigitID = ["1", "2"];
+//global.awayDigitID = ["4", "5"];
 global.inningDigitID = "3";
 global.ballsDigitID = "6";
 global.strikesDigitID = "7";
 global.outsDigitID = "8";
+
+//digit IDs for football
+global.homeDigitID = ["1", "2"];
+global.awayDigitID = ["7", "8"];
 global.qtrDigitID = "9";
 global.timerDigitID = ["3", "4", "5", "6"];
 
-//digit values
+//default digit values
 global.homeDigitVal = 0;
 global.awayDigitVal = 0;
 global.inningDigitVal = 0;
