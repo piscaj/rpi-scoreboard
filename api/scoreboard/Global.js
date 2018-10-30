@@ -1,4 +1,4 @@
-/*Global Variables for standard baseball scoreboard*/
+/*Global Variables*/
 
 //scoreboard ID
 global.scoreboardID = "1";
