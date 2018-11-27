@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
 });
 
 //score request
-router.get("/Score", function(req, res, next) {
+router.get("/score", function(req, res, next) {
   res.status(200).json({
     message: "Success",
     homeScore: homeDigitVal,

@@ -12,7 +12,7 @@ router.get("/", function(req, res, next) {
 
 //reset scoreboard 0000
 router.get("/resetBaseballScore", function(req, res, next) {
-  request.resetScore();
+  request.resetBaseballScore();
   res.status(200).json({
     message: "Success",
     homeScore: "0",
@@ -21,6 +21,17 @@ router.get("/resetBaseballScore", function(req, res, next) {
     balls: "0",
     strikes: "0",
     outs: "0"
+  });
+});
+
+//reset scoreboard 0000
+router.get("/resetFootballScore", function(req, res, next) {
+  request.resetFootballScore();
+  res.status(200).json({
+    message: "Success",
+    homeScore: "0",
+    awayScore: "0",
+    qtr: "0"
   });
 });
 

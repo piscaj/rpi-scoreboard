@@ -44,6 +44,28 @@ module.exports = {
     }
   },
 
+    resetFootballScore: function() {
+      homeDigitVal = 0;
+      awayDigitVal = 0;
+      qtrDigitVal = 0;
+  
+      //reset home score
+      var command = buildCommand.displayCommand(homeDigitID[0], "0");
+      com.portWrite(command);
+      var command = buildCommand.displayCommand(homeDigitID[1], "0");
+      com.portWrite(command);
+      //reset away score
+      var command = buildCommand.displayCommand(awayDigitID[0], "0");
+      com.portWrite(command);
+      var command = buildCommand.displayCommand(awayDigitID[1], "0");
+      com.portWrite(command);
+      //reset qtr
+      for (i = 0; i < qtrDigitID.length; i++) {
+        var command = buildCommand.displayCommand(qtrDigitID[i], "0");
+        com.portWrite(command);
+      }
+    },
+
   addHome: function() {
     const max = 99;
     var val = "0";
