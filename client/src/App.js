@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Scoreboard from "./components/scoreboard";
+import ScoreboardFootball from "./components/scoreboardFootball";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Scoreboard />
+        <ScoreboardFootball />
       </div>
     );
   }

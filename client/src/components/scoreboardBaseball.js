@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Glyphicon } from "react-bootstrap";
 
-class Scoreboard extends Component {
+class ScoreboardBaseball extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -249,4 +249,4 @@ class Scoreboard extends Component {
     );
   }
 }
-export default Scoreboard;
+export default ScoreboardBaseball;
