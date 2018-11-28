@@ -178,9 +178,9 @@ class ScoreboardFootball extends Component {
         </div>
         <div><p></p></div>
         <div><input className="time" value={this.state.time} /></div>
-        <div><a onClick={this.startTimer}>Start -------- </a>
-        <a onClick={this.stopTimer}>Stop</a>
-        <a onClick={this.resetTimer}> -------- Reset</a></div>
+        <div><a onClick={this.stopTimer}>Stop -------- </a>
+        <a onClick={this.resetTimer}>Reset</a>
+        <a onClick={this.startTimer}> -------- Start</a></div>
       </div>
     );
   }
