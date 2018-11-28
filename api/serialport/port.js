@@ -1,5 +1,5 @@
 require("../scoreboard/Global.js");
-const timer = require("../timer/stopwatch");
+//const timer = require("../timer/stopwatch");
 //const request = require("../scoreboard/processAPI");
 
 // include Serialport library
