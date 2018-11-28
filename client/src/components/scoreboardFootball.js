@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Glyphicon } from "react-bootstrap";
+import Button from 'react-bootstrap/lib/Button';
 
 class ScoreboardFootball extends Component {
   constructor(props) {
@@ -131,37 +131,31 @@ class ScoreboardFootball extends Component {
     return (
       <div>
         <div className="title">Home</div>
-        <Button
-          className="buttonSize"
-          bsStyle="default"
-          onClick={this.subtractHome}
-        >
-          <Glyphicon glyph="minus" />
+        <Button variant="outline-secondary" size="sm" onClick={this.subtractHome}>-
+
         </Button>
         <input className="number" value={this.state.homeScore} />
-        <Button bsSize="large" bsStyle="default" onClick={this.addHome}>
-          <Glyphicon glyph="plus" />
+        <Button variant="outline-secondary" size="sm" onClick={this.addHome}>+
+
         </Button>
         <div className="title">Away</div>
-        <Button bsSize="large" bsStyle="default" onClick={this.subtractAway}>
-          <Glyphicon glyph="minus" />
+        <Button variant="outline-secondary" size="sm" onClick={this.subtractAway}>-
+          
         </Button>
         <input className="number" value={this.state.awayScore} />
-        <Button bsSize="large" bsStyle="default" onClick={this.addAway}>
-          <Glyphicon glyph="plus" />
+        <Button variant="outline-secondary" size="sm" onClick={this.addAway}>+
+         
         </Button>
         <div className="title">Quarter</div>
-        <Button bsSize="large" bsStyle="default" onClick={this.subtractQtr}>
-          <Glyphicon glyph="minus" />
+        <Button variant="outline-secondary" size="sm" onClick={this.subtractQtr}>-
+         
         </Button>
         <input className="number" value={this.state.qtr} />
-        <Button bsSize="large" bsStyle="default" onClick={this.addQtr}>
-          <Glyphicon glyph="plus" />
+        <Button variant="outline-secondary" size="sm" onClick={this.addQtr}>+
+          
         </Button>
-        <div className="number" />
-        <Button bsSize="large" bsStyle="default" onClick={this.resetScore}>
-          <Glyphicon glyph="remove" />
-        </Button>
+        <div className="" />
+        <a onClick={this.resetScore}>Reset Score</a>
       </div>
     );
   }

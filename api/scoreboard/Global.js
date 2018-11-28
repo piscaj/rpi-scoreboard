@@ -29,6 +29,6 @@ global.timerMinutesVal = 0;
 global.timerSecondsVal = 0;
 
 //serialport
-global.portStatus = "closed";
+global.portStatus = "open";
 global.portBaudrate = "9600";
 global.portErr = "none";

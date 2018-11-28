@@ -20,7 +20,8 @@ router.get("/score", function(req, res, next) {
     inning: inningDigitVal,
     balls: ballsDigitVal,
     strikes: strikesDigitVal,
-    outs: outsDigitVal
+    outs: outsDigitVal,
+    qtr: qtrDigitVal
   });
 });
 
