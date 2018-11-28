@@ -65,7 +65,6 @@ function portOpen() {
   portBaudRate = myPort.baudRate;
   portStatus = "open";
  setTimeout( console.log('Blah blah blah blah extra-blah'), 3000);
- setTimeout( console.log('Blah blah blah blah extra-blah'), 3000);
 }
 //on data
 function readSerialData(data) {
