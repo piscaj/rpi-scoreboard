@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Button from 'react-bootstrap/lib/Button';
+//import Button from 'react-bootstrap/lib/Button';
 
 class ScoreboardFootball extends Component {
   constructor(props) {
@@ -123,7 +123,7 @@ class ScoreboardFootball extends Component {
 
   render() {
     if (this.state.error) {
-      return <Button>...Ooops! Something went wrong.</Button>;
+      return <button>...Ooops! Something went wrong.</button>;
     }
     if (this.state.dataLoading) {
       return <h3>Updating Controls...</h3>;
@@ -131,29 +131,29 @@ class ScoreboardFootball extends Component {
     return (
       <div>
         <div className="title">Home</div>
-        <Button variant="outline-secondary" size="sm" onClick={this.subtractHome}>-
+        <button class="btn" onClick={this.subtractHome}>-
 
-        </Button>
+        </button>
         <input className="number" value={this.state.homeScore} />
-        <Button variant="outline-secondary" size="sm" onClick={this.addHome}>+
+        <button class="btn" onClick={this.addHome}>+
 
-        </Button>
+        </button>
         <div className="title">Away</div>
-        <Button variant="outline-secondary" size="sm" onClick={this.subtractAway}>-
+        <button class="btn" onClick={this.subtractAway}>-
           
-        </Button>
+        </button>
         <input className="number" value={this.state.awayScore} />
-        <Button variant="outline-secondary" size="sm" onClick={this.addAway}>+
+        <button class="btn" onClick={this.addAway}>+
          
-        </Button>
+        </button>
         <div className="title">Quarter</div>
-        <Button variant="outline-secondary" size="sm" onClick={this.subtractQtr}>-
+        <button class="btn" onClick={this.subtractQtr}>-
          
-        </Button>
+        </button>
         <input className="number" value={this.state.qtr} />
-        <Button variant="outline-secondary" size="sm" onClick={this.addQtr}>+
+        <button class="btn" onClick={this.addQtr}>+
           
-        </Button>
+        </button>
         <div className="" />
         <a onClick={this.resetScore}>Reset Score</a>
       </div>
