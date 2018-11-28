@@ -22,7 +22,9 @@ body {
   border:0px;
 }
 
-.btn{
+.btn {
+  color:rgb(0, 0, 0);
+  background-color: #4285f4;
   width:80px;
   height:60px;
   border-radius:50px;
@@ -30,15 +32,20 @@ body {
   position:relative;
   top:-12px;
   font-size:18px;
-
 }
 
 .btn:hover {
-  color: black;
-  background: rgb(255, 255, 255);
+  background-color: #296CDB;
 }
 
 .btn:focus {
-  outline: none;
+  background-color: #0F52C1;
+
+  /* The outline parameter surpresses the border
+  color / outline when focused */
+  outline: 0;
 }
 
+.btn:active {
+  background-color: #0039A8;
+}
