@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-//import Button from 'react-bootstrap/lib/Button';
+import socketIOClient from "socket.io-client";
+
 //
 class ScoreboardFootball extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      time: '00:00',
+      endpoint: "http://127.0.0.1:3002",
       homeScore: 0,
       awayScore: 0,
       qtr: 0,
@@ -15,6 +18,11 @@ class ScoreboardFootball extends Component {
 
   componentDidMount() {
     this.setState({ dataLoading: true });
+
+    const { endpoint } = this.state;
+    const socket = socketIOClient(endpoint);
+    socket.on("time", data => this.setState({ time: data }));
+
     fetch("/status/serialport")
       .then(response => {
         return response.json();
@@ -106,7 +114,6 @@ class ScoreboardFootball extends Component {
       .then(data => this.setState({ qtr: data.qtr }));
   };
 
-  
   resetScore = () => {
     fetch("/setDigit/resetFootballScore")
       .then(response => {
@@ -121,6 +128,18 @@ class ScoreboardFootball extends Component {
       );
   };
 
+  resetTimer = () => {
+    fetch("/status/timer/reset");
+  };
+
+  startTimer = () => {
+    fetch("/status/timer/start");
+  };
+
+  stopTimer = () => {
+    fetch("/status/timer/stop");
+  };
+
   render() {
     if (this.state.error) {
       return <button>...Ooops! Something went wrong.</button>;
@@ -131,31 +150,36 @@ class ScoreboardFootball extends Component {
     return (
       <div>
         <div className="title">Home</div>
-        <button className="btn" onClick={this.subtractHome}>-
-
+        <button className="btn" onClick={this.subtractHome}>
+          -
         </button>
         <input className="number" value={this.state.homeScore} />
-        <button className="btn" onClick={this.addHome}>+
-
+        <button className="btn" onClick={this.addHome}>
+          +
         </button>
         <div className="title">Away</div>
-        <button className="btn" onClick={this.subtractAway}>-
-          
+        <button className="btn" onClick={this.subtractAway}>
+          -
         </button>
         <input className="number" value={this.state.awayScore} />
-        <button className="btn" onClick={this.addAway}>+
-         
+        <button className="btn" onClick={this.addAway}>
+          +
         </button>
         <div className="title">Quarter</div>
-        <button className="btn" onClick={this.subtractQtr}>-
-         
+        <button className="btn" onClick={this.subtractQtr}>
+          -
         </button>
         <input className="number" value={this.state.qtr} />
-        <button className="btn" onClick={this.addQtr}>+
-          
+        <button className="btn" onClick={this.addQtr}>
+          +
         </button>
-        <div className="" />
-        <a onClick={this.resetScore}>Reset Score</a>
+        <div className="">
+          <a onClick={this.resetScore}>--- Reset Score ---</a>
+        </div>
+        <div><input className="number" value={this.state.time} /></div>
+        <div><a onClick={this.startTimer}>Start -------- </a>
+        <a onClick={this.stopTimer}>Stop</a>
+        <a onClick={this.resetTimer}> -------- Reset</a></div>
       </div>
     );
   }
