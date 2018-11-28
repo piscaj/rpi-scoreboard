@@ -131,27 +131,27 @@ class ScoreboardFootball extends Component {
     return (
       <div>
         <div className="title">Home</div>
-        <button class="btn" onClick={this.subtractHome}>-
+        <button className="btn" onClick={this.subtractHome}>-
 
         </button>
         <input className="number" value={this.state.homeScore} />
-        <button class="btn" onClick={this.addHome}>+
+        <button className="btn" onClick={this.addHome}>+
 
         </button>
         <div className="title">Away</div>
-        <button class="btn" onClick={this.subtractAway}>-
+        <button className="btn" onClick={this.subtractAway}>-
           
         </button>
         <input className="number" value={this.state.awayScore} />
-        <button class="btn" onClick={this.addAway}>+
+        <button className="btn" onClick={this.addAway}>+
          
         </button>
         <div className="title">Quarter</div>
-        <button class="btn" onClick={this.subtractQtr}>-
+        <button className="btn" onClick={this.subtractQtr}>-
          
         </button>
         <input className="number" value={this.state.qtr} />
-        <button class="btn" onClick={this.addQtr}>+
+        <button className="btn" onClick={this.addQtr}>+
           
         </button>
         <div className="" />
