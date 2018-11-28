@@ -23,16 +23,16 @@ body {
 }
 
 .btn {
-  -webkit-tap-highlight-color: rgb(187, 189, 191);
-  color:rgb(255, 255, 255);
-  background-color: #4285f4;
-  width:80px;
-  height:60px;
-  border-radius:50px;
-  -webkit-border-radius:50px;
-  position:relative;
   top:-12px;
   font-size:18px;
+  -webkit-tap-highlight-color: rgb(187, 189, 191);
+  -webkit-border-radius:50px;
+  border-radius:50px;
+  width:80px;
+  height:60px;
+  color:rgb(255, 255, 255);
+  background-color: #4285f4;
+  position:relative;
 }
 .btn:active {
   background-color: #0039A8;
