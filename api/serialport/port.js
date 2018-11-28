@@ -1,6 +1,5 @@
 require("../scoreboard/Global.js");
-//const timer = require("../timer/stopwatch");
-//const request = require("../scoreboard/processAPI");
+const timer = require("../timer/stopwatch");
 
 // include Serialport library
 var SerialPort = require("serialport");
@@ -64,7 +63,9 @@ function portOpen() {
   console.log("Port open. Data rate: " + myPort.baudRate);
   portBaudRate = myPort.baudRate;
   portStatus = "open";
-//setTimeout( console.log('Blah blah blah blah extra-blah'), 3000);
+ setTimeout(
+   timer.resetTimer()  
+  , 10000);
 }
 //on data
 function readSerialData(data) {
