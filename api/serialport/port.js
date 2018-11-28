@@ -1,5 +1,4 @@
 require("../scoreboard/Global.js");
-const buildCommand = require("../scoreboard/controlDigit");
 const timer = require("../timer/stopwatch");
 const request = require("../scoreboard/processAPI");
 
@@ -65,9 +64,8 @@ function portOpen() {
   console.log("Port open. Data rate: " + myPort.baudRate);
   portBaudRate = myPort.baudRate;
   portStatus = "open";
-
- setTimeout(request.resetFootballScore(), 3000);
- setTimeout(timer.resetTimer(), 3000);
+ setTimeout( console.log('Blah blah blah blah extra-blah'), 3000);
+ setTimeout( console.log('Blah blah blah blah extra-blah'), 3000);
 }
 //on data
 function readSerialData(data) {
