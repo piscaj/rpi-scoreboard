@@ -1,4 +1,8 @@
 require("../scoreboard/Global.js");
+const buildCommand = require("../scoreboard/controlDigit");
+const timer = require("../timer/stopwatch");
+const request = require("../scoreboard/processAPI");
+
 // include Serialport library
 var SerialPort = require("serialport");
 //Set port here
@@ -18,6 +22,7 @@ module.exports = {
   openPort: function() {
     if (myPort.isOpen === false) {
       myPort.open();
+
     } else {
       console.log("Port is already open.");
     }
@@ -60,6 +65,8 @@ function portOpen() {
   console.log("Port open. Data rate: " + myPort.baudRate);
   portBaudRate = myPort.baudRate;
   portStatus = "open";
+  request.resetFootballScore();
+  timer.resetTimer();
 }
 //on data
 function readSerialData(data) {
