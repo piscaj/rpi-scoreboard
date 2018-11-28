@@ -7,7 +7,7 @@ class ScoreboardFootball extends Component {
     super(props);
     this.state = {
       time: '00:00',
-      endpoint: "http://127.0.0.1:3002",
+      endpoint: "http://10.3.141.1:3002",
       homeScore: 0,
       awayScore: 0,
       qtr: 0,
@@ -176,7 +176,8 @@ class ScoreboardFootball extends Component {
         <div className="">
           <a onClick={this.resetScore}>--- Reset Score ---</a>
         </div>
-        <div><input className="number" value={this.state.time} /></div>
+        <div><p></p></div>
+        <div><input className="time" value={this.state.time} /></div>
         <div><a onClick={this.startTimer}>Start -------- </a>
         <a onClick={this.stopTimer}>Stop</a>
         <a onClick={this.resetTimer}> -------- Reset</a></div>
