@@ -110,7 +110,7 @@ io.on('connection', function (socket) {
   timer.onTime(function(time) {
     minutes = Math.floor(time.ms / 1000 / 60) << 0;
     seconds = Math.floor(time.ms / 1000) % 60;
-    if(seconds.length < 2){seconds = '0'+seconds}
+    if(seconds.length == 1){seconds = '0'+seconds}
     socket.emit('time', minutes+':'+seconds);
   
   });
