@@ -6,7 +6,7 @@ class ScoreboardFootball extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: '00:00',
+      time: "00:00",
       endpoint: "http://10.3.141.1:3002",
       homeScore: 0,
       awayScore: 0,
@@ -17,7 +17,7 @@ class ScoreboardFootball extends Component {
   }
 
   componentDidMount() {
-    this.setState({ dataLoading: false });
+    this.setState({ dataLoading: true });
 
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
@@ -33,103 +33,44 @@ class ScoreboardFootball extends Component {
       })
       .then(data => {
         if (data.connection === "closed") {
-          fetch("/status/serialport/open")
-            .then(response => {
-              return response.json();
-           })
-           // .then(data => {
-           //   if (data.connection === "open") {
-           //     fetch("/status/score")
-           //       .then(response => {
-            //        return response.json();
-             //     })
-             //     .then(data =>
-              //      this.setState({
-               //       homeScore: data.homeScore,
-                //      awayScore: data.awayScore,
-                 //     qtr: data.qtr,
-                  //    dataLoading: false
-                   // })
-                 // );
-            //  }
-           // });
-        } else {
-          //fetch("/status/score")
-          //  .then(response => {
-           //   return response.json();
-           // })
-           // .then(data =>
-            //  this.setState({
-             //   homeScore: data.homeScore,
-              //  awayScore: data.awayScore,
-               // qtr: data.qtr,
-               // dataLoading: false
-             // })
-           // );
+          fetch("/status/serialport/open").then(response => {
+            return response.json();
+          });
+        }
+      })
+      .then(data => {
+        if (data.connection === "open") {
+          dataLoading: true;
         }
       });
   }
 
   subtractHome = () => {
-    fetch("/setDigit/home/subtract")
-     // .then(response => {
-     //   return response.json();
-     // })
-     // .then(data => this.setState({ homeScore: data.homeScore }));
+    fetch("/setDigit/home/subtract");
   };
 
   addHome = () => {
-    fetch("/setDigit/home/add")
-      //.then(response => {
-      //  return response.json();
-      //})
-      //.then(data => this.setState({ homeScore: data.homeScore }));
+    fetch("/setDigit/home/add");
   };
 
   subtractAway = () => {
-    fetch("/setDigit/away/subtract")
-      //.then(response => {
-      //  return response.json();
-      //})
-      //.then(data => this.setState({ awayScore: data.awayScore }));
+    fetch("/setDigit/away/subtract");
   };
 
   addAway = () => {
-    fetch("/setDigit/away/add")
-      //.then(response => {
-      //  return response.json();
-      //})
-      //.then(data => this.setState({ awayScore: data.awayScore }));
+    fetch("/setDigit/away/add");
   };
 
   subtractQtr = () => {
-    fetch("/setDigit/qtr/subtract")
-      //.then(response => {
-       // return response.json();
-      //})
-      //.then(data => this.setState({ qtr: data.qtr }));
+    fetch("/setDigit/qtr/subtract");
   };
 
   addQtr = () => {
-    fetch("/setDigit/qtr/add")
-      //.then(response => {
-      //  return response.json();
-      //})
-      //.then(data => this.setState({ qtr: data.qtr }));
+    fetch("/setDigit/qtr/add");
   };
 
   resetScore = () => {
-    fetch("/setDigit/resetFootballScore")
-      //.then(response => {
-      //  return response.json();
-      //})
-      //.then(data =>
-      //  this.setState({
-       //   homeScore: data.homeScore,
-       //   awayScore: data.awayScore,
-       //   qtr: data.qtr
-       // })
-     // );
+    fetch("/setDigit/resetFootballScore");
   };
 
   resetTimer = () => {
@@ -180,11 +121,17 @@ class ScoreboardFootball extends Component {
         <div className="">
           <a onClick={this.resetScore}>--- Reset Score ---</a>
         </div>
-        <div><p></p></div>
-        <div><input className="time" value={this.state.time} /></div>
-        <div><a onClick={this.stopTimer}>Stop -------- </a>
-        <a onClick={this.resetTimer}>Reset</a>
-        <a onClick={this.startTimer}> -------- Start</a></div>
+        <div>
+          <p />
+        </div>
+        <div>
+          <input className="time" value={this.state.time} />
+        </div>
+        <div>
+          <a onClick={this.stopTimer}>Stop -------- </a>
+          <a onClick={this.resetTimer}>Reset</a>
+          <a onClick={this.startTimer}> -------- Start</a>
+        </div>
       </div>
     );
   }
