@@ -7,7 +7,7 @@ class ScoreboardFootball extends Component {
     super(props);
     this.state = {
       time: '00:00',
-      endpoint: "http://192.168.2.164:3002",
+      endpoint: "http://10.3.141.1:3002",
       homeScore: 0,
       awayScore: 0,
       qtr: 0,
