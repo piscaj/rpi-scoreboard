@@ -5,9 +5,8 @@ const com = require("../serialport/port");
 require("../scoreboard/Global");
 const splitNumber = require("../scoreboard/splitNumber");
 
-const
-    server = require("socket.io"),
-    io = server.listen(3002);
+const server = require("socket.io"),
+  io = server.listen(3002);
 
 var options = {
   refreshRateMS: 1000, //how often the clock should be updated
@@ -85,13 +84,13 @@ timer.onTime(function(time) {
 timer.onDone(function() {
   console.log("Timer is complete");
 
-  var command = buildCommand.displayCommand(timerDigitID[3], '-');
+  var command = buildCommand.displayCommand(timerDigitID[3], "-");
   com.portWrite(command);
-  var command = buildCommand.displayCommand(timerDigitID[2], '-');
+  var command = buildCommand.displayCommand(timerDigitID[2], "-");
   com.portWrite(command);
-  var command = buildCommand.displayCommand(timerDigitID[1], '-');
+  var command = buildCommand.displayCommand(timerDigitID[1], "-");
   com.portWrite(command);
-  var command = buildCommand.displayCommand(timerDigitID[0], '-');
+  var command = buildCommand.displayCommand(timerDigitID[0], "-");
   com.portWrite(command);
 });
 
@@ -100,22 +99,39 @@ timer.onAlmostDone(function() {
   console.log("Timer is almost complete");
 });
 
-// Handle socket io connection 
-io.on('connection', function (socket) {
-  console.log("Connected succesfully to the socket ...");
-  
-  var minutes;
-  var seconds;
+var userCount = 0;
+var minutes;
+var seconds;
+var updateRunning = false;
+// Handle socket io connection
+io.on("connection", function(socket) {
+  console.log("Socket connected...");
+  userCount++;
+  socket.on("disconnect", function() {
+    userCount--;
+  });
+
+  update();
 
   timer.onTime(function(time) {
     minutes = Math.floor(time.ms / 1000 / 60) << 0;
     seconds = Math.floor(time.ms / 1000) % 60;
     seconds = seconds.toString().padStart(2, "0");
-    socket.emit('time', minutes+':'+seconds);
-  
+    socket.emit("time", minutes + ":" + seconds);
   });
-  
-  socket.on('my other event', function (data) {
-      console.log(data);
+
+  function update() {
+    setTimeout(function() {
+      if (userCount > 0) {
+        socket.emit("home", homeDigitVal);
+        socket.emit("away", awayDigitVal);
+        socket.emit("qtr", qtrDigitVal);
+        update();
+      }
+    }, 300);
+  }
+
+  socket.on("incoming data from client", function(data) {
+    console.log(data);
   });
 });

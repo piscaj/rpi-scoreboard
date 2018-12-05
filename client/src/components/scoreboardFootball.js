@@ -7,7 +7,7 @@ class ScoreboardFootball extends Component {
     super(props);
     this.state = {
       time: '00:00',
-      endpoint: "http://10.3.141.1:3002",
+      endpoint: "http://192.168.2.164:3002",
       homeScore: 0,
       awayScore: 0,
       qtr: 0,
@@ -17,11 +17,15 @@ class ScoreboardFootball extends Component {
   }
 
   componentDidMount() {
-    this.setState({ dataLoading: true });
+    this.setState({ dataLoading: false });
 
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
+
     socket.on("time", data => this.setState({ time: data }));
+    socket.on("home", data => this.setState({ homeScore: data }));
+    socket.on("away", data => this.setState({ awayScore: data }));
+    socket.on("qtr", data => this.setState({ qtr: data }));
 
     fetch("/status/serialport")
       .then(response => {
@@ -32,100 +36,100 @@ class ScoreboardFootball extends Component {
           fetch("/status/serialport/open")
             .then(response => {
               return response.json();
-            })
-            .then(data => {
-              if (data.connection === "open") {
-                fetch("/status/score")
-                  .then(response => {
-                    return response.json();
-                  })
-                  .then(data =>
-                    this.setState({
-                      homeScore: data.homeScore,
-                      awayScore: data.awayScore,
-                      qtr: data.qtr,
-                      dataLoading: false
-                    })
-                  );
-              }
-            });
+           })
+           // .then(data => {
+           //   if (data.connection === "open") {
+           //     fetch("/status/score")
+           //       .then(response => {
+            //        return response.json();
+             //     })
+             //     .then(data =>
+              //      this.setState({
+               //       homeScore: data.homeScore,
+                //      awayScore: data.awayScore,
+                 //     qtr: data.qtr,
+                  //    dataLoading: false
+                   // })
+                 // );
+            //  }
+           // });
         } else {
-          fetch("/status/score")
-            .then(response => {
-              return response.json();
-            })
-            .then(data =>
-              this.setState({
-                homeScore: data.homeScore,
-                awayScore: data.awayScore,
-                qtr: data.qtr,
-                dataLoading: false
-              })
-            );
+          //fetch("/status/score")
+          //  .then(response => {
+           //   return response.json();
+           // })
+           // .then(data =>
+            //  this.setState({
+             //   homeScore: data.homeScore,
+              //  awayScore: data.awayScore,
+               // qtr: data.qtr,
+               // dataLoading: false
+             // })
+           // );
         }
       });
   }
 
   subtractHome = () => {
     fetch("/setDigit/home/subtract")
-      .then(response => {
-        return response.json();
-      })
-      .then(data => this.setState({ homeScore: data.homeScore }));
+     // .then(response => {
+     //   return response.json();
+     // })
+     // .then(data => this.setState({ homeScore: data.homeScore }));
   };
 
   addHome = () => {
     fetch("/setDigit/home/add")
-      .then(response => {
-        return response.json();
-      })
-      .then(data => this.setState({ homeScore: data.homeScore }));
+      //.then(response => {
+      //  return response.json();
+      //})
+      //.then(data => this.setState({ homeScore: data.homeScore }));
   };
 
   subtractAway = () => {
     fetch("/setDigit/away/subtract")
-      .then(response => {
-        return response.json();
-      })
-      .then(data => this.setState({ awayScore: data.awayScore }));
+      //.then(response => {
+      //  return response.json();
+      //})
+      //.then(data => this.setState({ awayScore: data.awayScore }));
   };
 
   addAway = () => {
     fetch("/setDigit/away/add")
-      .then(response => {
-        return response.json();
-      })
-      .then(data => this.setState({ awayScore: data.awayScore }));
+      //.then(response => {
+      //  return response.json();
+      //})
+      //.then(data => this.setState({ awayScore: data.awayScore }));
   };
 
   subtractQtr = () => {
     fetch("/setDigit/qtr/subtract")
-      .then(response => {
-        return response.json();
-      })
-      .then(data => this.setState({ qtr: data.qtr }));
+      //.then(response => {
+       // return response.json();
+      //})
+      //.then(data => this.setState({ qtr: data.qtr }));
   };
 
   addQtr = () => {
     fetch("/setDigit/qtr/add")
-      .then(response => {
-        return response.json();
-      })
-      .then(data => this.setState({ qtr: data.qtr }));
+      //.then(response => {
+      //  return response.json();
+      //})
+      //.then(data => this.setState({ qtr: data.qtr }));
   };
 
   resetScore = () => {
     fetch("/setDigit/resetFootballScore")
-      .then(response => {
-        return response.json();
-      })
-      .then(data =>
-        this.setState({
-          homeScore: data.homeScore,
-          awayScore: data.awayScore,
-          qtr: data.qtr
-        })
-      );
+      //.then(response => {
+      //  return response.json();
+      //})
+      //.then(data =>
+      //  this.setState({
+       //   homeScore: data.homeScore,
+       //   awayScore: data.awayScore,
+       //   qtr: data.qtr
+       // })
+     // );
   };
 
   resetTimer = () => {
