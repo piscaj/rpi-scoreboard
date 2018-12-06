@@ -127,7 +127,7 @@ class ScoreboardFootball extends Component {
           <input className="time" value={this.state.time} />
         </div>
         <div className="timeBot">
-        <span className="timeSpa">><button  className="btnT" onClick={this.stopTimer}>Stop</button></span>
+        <span className="timeSpa"><button  className="btnT" onClick={this.stopTimer}>Stop</button></span>
         <span className="timeSpa"><button className="btnT" onClick={this.resetTimer}>Reset</button></span>
         <span className="timeSpa"><button className="btnT" onClick={this.startTimer}>Start</button></span>
         </div>
